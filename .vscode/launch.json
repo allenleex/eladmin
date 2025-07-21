@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AppRun<eladmin-system>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "me.zhengjie.AppRun",
+            "projectName": "eladmin-system",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
