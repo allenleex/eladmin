@@ -16,6 +16,7 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.type.StorageAreaType;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -50,12 +51,13 @@ public class ZjsjStorageArea implements Serializable {
 
     @Column(name = "`type`",nullable = false)
     @NotNull
-    @ApiModelProperty(value = "type")
-    private Integer type;
+    @ApiModelProperty(value = "类型")
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private StorageAreaType type;
 
     @Column(name = "`location`")
     @ApiModelProperty(value = "地理坐标")
-    private Integer location;
+    private String location;
 
     @Column(name = "`capacity`")
     @ApiModelProperty(value = "场地容量描述")

@@ -16,6 +16,8 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.type.StorageAreaType;
+
 import java.sql.Timestamp;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,11 +37,11 @@ public class ZjsjStorageAreaDto implements Serializable {
     @ApiModelProperty(value = "场地名称")
     private String name;
 
-    @ApiModelProperty(value = "type")
-    private Integer type;
+    @ApiModelProperty(value = "类型")
+    private StorageAreaType type;
 
     @ApiModelProperty(value = "地理坐标")
-    private Integer location;
+    private String location;
 
     @ApiModelProperty(value = "场地容量描述")
     private String capacity;

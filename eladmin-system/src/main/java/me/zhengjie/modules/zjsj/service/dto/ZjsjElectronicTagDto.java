@@ -32,7 +32,7 @@ public class ZjsjElectronicTagDto implements Serializable {
     @ApiModelProperty(value = "标签物理ID")
     private String id;
 
-    @ApiModelProperty(value = "type")
+    @ApiModelProperty(value = "类型")
     private Integer type;
 
     @ApiModelProperty(value = "绑定资产ID")

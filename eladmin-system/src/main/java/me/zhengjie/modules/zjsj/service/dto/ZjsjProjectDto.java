@@ -16,6 +16,9 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.type.ProjectStatus;
+import me.zhengjie.modules.zjsj.type.ProjectType;
+
 import java.sql.Timestamp;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,19 +42,19 @@ public class ZjsjProjectDto implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "项目类型")
-    private Integer type;
+    private ProjectType type;
 
     @ApiModelProperty(value = "项目规模描述")
     private String scale;
 
     @ApiModelProperty(value = "地理位置(GIS坐标)")
-    private Integer location;
+    private String location;
 
     @ApiModelProperty(value = "责任主体单位")
     private String responsibleOrg;
 
-    @ApiModelProperty(value = "status")
-    private Integer status;
+    @ApiModelProperty(value = "状态")
+    private ProjectStatus status;
 
     @ApiModelProperty(value = "创建者")
     private String createBy;

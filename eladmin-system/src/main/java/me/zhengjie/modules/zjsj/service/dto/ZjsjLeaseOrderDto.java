@@ -48,7 +48,7 @@ public class ZjsjLeaseOrderDto implements Serializable {
     @ApiModelProperty(value = "租赁总费用")
     private BigDecimal totalFee;
 
-    @ApiModelProperty(value = "status")
+    @ApiModelProperty(value = "状态")
     private Integer status;
 
     @ApiModelProperty(value = "创建者")

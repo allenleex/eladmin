@@ -16,6 +16,7 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.type.AssertStatus;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -73,8 +74,9 @@ public class ZjsjAsset implements Serializable {
 
     @Column(name = "`status`",nullable = false)
     @NotNull
-    @ApiModelProperty(value = "status")
-    private Integer status;
+    @ApiModelProperty(value = "状态")
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private AssertStatus status;
 
     @Column(name = "`is_turnover`")
     @ApiModelProperty(value = "是否周转物资")

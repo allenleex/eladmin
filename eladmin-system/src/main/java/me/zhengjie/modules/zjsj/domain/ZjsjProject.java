@@ -16,6 +16,8 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.type.ProjectStatus;
+import me.zhengjie.modules.zjsj.type.ProjectType;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -54,7 +56,8 @@ public class ZjsjProject implements Serializable {
 
     @Column(name = "`type`")
     @ApiModelProperty(value = "项目类型")
-    private Integer type;
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private ProjectType type;
 
     @Column(name = "`scale`")
     @ApiModelProperty(value = "项目规模描述")
@@ -62,15 +65,16 @@ public class ZjsjProject implements Serializable {
 
     @Column(name = "`location`")
     @ApiModelProperty(value = "地理位置(GIS坐标)")
-    private Integer location;
+    private String location;
 
     @Column(name = "`responsible_org`")
     @ApiModelProperty(value = "责任主体单位")
     private String responsibleOrg;
 
     @Column(name = "`status`")
-    @ApiModelProperty(value = "status")
-    private Integer status;
+    @ApiModelProperty(value = "状态")
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private ProjectStatus status;
 
     @Column(name = "`create_by`")
     @ApiModelProperty(value = "创建者")

@@ -16,6 +16,8 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.type.AssertStatus;
+
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
@@ -51,8 +53,8 @@ public class ZjsjAssetDto implements Serializable {
     @ApiModelProperty(value = "资产原值")
     private BigDecimal originalValue;
 
-    @ApiModelProperty(value = "status")
-    private Integer status;
+    @ApiModelProperty(value = "状态")
+    private AssertStatus status;
 
     @ApiModelProperty(value = "是否周转物资")
     private Integer isTurnover;

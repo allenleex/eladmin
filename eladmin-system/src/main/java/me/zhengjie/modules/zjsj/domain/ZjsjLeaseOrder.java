@@ -69,7 +69,7 @@ public class ZjsjLeaseOrder implements Serializable {
     private BigDecimal totalFee;
 
     @Column(name = "`status`")
-    @ApiModelProperty(value = "status")
+    @ApiModelProperty(value = "状态")
     private Integer status;
 
     @Column(name = "`create_by`")
