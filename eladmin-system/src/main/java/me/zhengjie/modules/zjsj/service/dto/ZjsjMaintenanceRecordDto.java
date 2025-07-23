@@ -16,6 +16,9 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.MaintenanceRecordResult;
+import me.zhengjie.modules.zjsj.enumeration.MaintenanceRecordType;
+
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
@@ -37,7 +40,7 @@ public class ZjsjMaintenanceRecordDto implements Serializable {
     private Long assetId;
 
     @ApiModelProperty(value = "类型")
-    private Integer type;
+    private MaintenanceRecordType type;
 
     @ApiModelProperty(value = "维护费用")
     private BigDecimal cost;
@@ -46,7 +49,7 @@ public class ZjsjMaintenanceRecordDto implements Serializable {
     private String content;
 
     @ApiModelProperty(value = "处理结果")
-    private Integer result;
+    private MaintenanceRecordResult result;
 
     @ApiModelProperty(value = "maintenanceDate")
     private Timestamp maintenanceDate;

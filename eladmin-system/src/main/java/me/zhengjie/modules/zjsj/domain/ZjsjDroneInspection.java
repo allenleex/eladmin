@@ -55,7 +55,7 @@ public class ZjsjDroneInspection implements Serializable {
 
     @Column(name = "`path_data`")
     @ApiModelProperty(value = "巡检路径坐标集")
-    private Integer pathData;
+    private String pathData;
 
     @Column(name = "`result_summary`")
     @ApiModelProperty(value = "异常汇总")

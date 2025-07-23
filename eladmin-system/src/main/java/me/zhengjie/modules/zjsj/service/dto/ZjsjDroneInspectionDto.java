@@ -39,7 +39,7 @@ public class ZjsjDroneInspectionDto implements Serializable {
     private Long storageAreaId;
 
     @ApiModelProperty(value = "巡检路径坐标集")
-    private Integer pathData;
+    private String pathData;
 
     @ApiModelProperty(value = "异常汇总")
     private String resultSummary;

@@ -16,6 +16,8 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.MaintenanceRecordResult;
+import me.zhengjie.modules.zjsj.enumeration.MaintenanceRecordType;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -51,7 +53,8 @@ public class ZjsjMaintenanceRecord implements Serializable {
     @Column(name = "`type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "类型")
-    private Integer type;
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private MaintenanceRecordType type;
 
     @Column(name = "`cost`")
     @ApiModelProperty(value = "维护费用")
@@ -63,7 +66,8 @@ public class ZjsjMaintenanceRecord implements Serializable {
 
     @Column(name = "`result`")
     @ApiModelProperty(value = "处理结果")
-    private Integer result;
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private MaintenanceRecordResult result;
 
     @Column(name = "`maintenance_date`",nullable = false)
     @NotNull

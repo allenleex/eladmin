@@ -16,7 +16,7 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
-import me.zhengjie.modules.zjsj.type.AssertStatus;
+import me.zhengjie.modules.zjsj.enumeration.AssertStatus;
 
 import java.sql.Timestamp;
 import java.math.BigDecimal;

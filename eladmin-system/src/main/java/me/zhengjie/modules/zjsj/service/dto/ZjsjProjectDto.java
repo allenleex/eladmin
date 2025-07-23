@@ -16,8 +16,8 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
-import me.zhengjie.modules.zjsj.type.ProjectStatus;
-import me.zhengjie.modules.zjsj.type.ProjectType;
+import me.zhengjie.modules.zjsj.enumeration.ProjectStatus;
+import me.zhengjie.modules.zjsj.enumeration.ProjectType;
 
 import java.sql.Timestamp;
 import java.io.Serializable;

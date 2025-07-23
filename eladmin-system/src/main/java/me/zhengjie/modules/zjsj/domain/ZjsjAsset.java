@@ -16,7 +16,7 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
-import me.zhengjie.modules.zjsj.type.AssertStatus;
+import me.zhengjie.modules.zjsj.enumeration.AssertStatus;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
