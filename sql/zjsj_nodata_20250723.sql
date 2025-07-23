@@ -535,7 +535,7 @@ CREATE TABLE `sys_log` (
   PRIMARY KEY (`log_id`) USING BTREE,
   KEY `idx_create_time_index` (`create_time`),
   KEY `idx_log_type` (`log_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=3670 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='系统日志';
+) ENGINE=InnoDB AUTO_INCREMENT=3673 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='系统日志';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -844,7 +844,7 @@ CREATE TABLE `zjsj_asset` (
   `model` varchar(50) DEFAULT NULL COMMENT '规格型号',
   `unit` varchar(10) DEFAULT NULL COMMENT '计量单位',
   `original_value` decimal(18,2) DEFAULT NULL COMMENT '资产原值',
-  `status` enum('在库','领用','借用','租赁中','维修中','待处置') NOT NULL,
+  `status` enum('INSTOCK','ISSUED','BORROWED','LEASE','MAINTENANCE','DISPOSED') NOT NULL,
   `is_turnover` tinyint(1) DEFAULT '0' COMMENT '是否周转物资',
   `storage_area_id` bigint DEFAULT NULL COMMENT '存放场地ID',
   `warehouse_id` bigint DEFAULT NULL COMMENT '仓库ID',
@@ -857,7 +857,7 @@ CREATE TABLE `zjsj_asset` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `asset_no` (`asset_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产主表';
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产主表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -915,7 +915,7 @@ CREATE TABLE `zjsj_drone_inspection` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `drone_id` varchar(30) NOT NULL COMMENT '无人机编号',
   `storage_area_id` bigint NOT NULL COMMENT '巡检场地ID',
-  `path_data` json DEFAULT NULL COMMENT '巡检路径坐标集',
+  `path_data` varchar(1000) DEFAULT NULL COMMENT '巡检路径坐标集',
   `result_summary` text COMMENT '异常汇总',
   `inspection_time` datetime NOT NULL,
   `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
@@ -923,7 +923,7 @@ CREATE TABLE `zjsj_drone_inspection` (
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='无人机巡检表';
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='无人机巡检表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1005,17 +1005,17 @@ DROP TABLE IF EXISTS `zjsj_maintenance_record`;
 CREATE TABLE `zjsj_maintenance_record` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `asset_id` bigint NOT NULL COMMENT '资产ID',
-  `type` enum('保养','维修') NOT NULL,
+  `type` enum('MAINTAIN','RAPAIR') NOT NULL,
   `cost` decimal(18,2) DEFAULT NULL COMMENT '维护费用',
   `content` text COMMENT '维护内容',
-  `result` enum('完成','待跟进','需报废') DEFAULT NULL COMMENT '处理结果',
+  `result` enum('DONE','FOLLOW','SCRAP') DEFAULT NULL COMMENT '处理结果',
   `maintenance_date` date NOT NULL,
   `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
   `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产维护表';
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产维护表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1049,18 +1049,18 @@ CREATE TABLE `zjsj_project` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `project_no` varchar(30) NOT NULL COMMENT '项目编号',
   `name` varchar(100) NOT NULL COMMENT '项目名称',
-  `type` enum('房屋建筑','市政工程','交通工程') DEFAULT NULL COMMENT '项目类型',
+  `type` enum('HOUSE','CITY','TRANS') DEFAULT NULL COMMENT '项目类型',
   `scale` varchar(200) DEFAULT NULL COMMENT '项目规模描述',
-  `location` point DEFAULT NULL COMMENT '地理位置(GIS坐标)',
+  `location` varchar(100) DEFAULT NULL COMMENT '地理位置(GIS坐标)',
   `responsible_org` varchar(50) DEFAULT NULL COMMENT '责任主体单位',
-  `status` enum('筹备','在建','竣工') DEFAULT NULL,
+  `status` enum('READY','GOING','DONE') DEFAULT NULL,
   `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
   `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `project_no` (`project_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='工程项目表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='工程项目表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1073,8 +1073,8 @@ DROP TABLE IF EXISTS `zjsj_storage_area`;
 CREATE TABLE `zjsj_storage_area` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL COMMENT '场地名称',
-  `type` enum('总仓','分仓','项目现场') NOT NULL,
-  `location` point DEFAULT NULL COMMENT '地理坐标',
+  `type` enum('CENTRAL','SEPARATE','PROJECT') NOT NULL,
+  `location` varchar(100) DEFAULT NULL COMMENT '地理坐标',
   `capacity` varchar(100) DEFAULT NULL COMMENT '场地容量描述',
   `manager_emp_id` bigint DEFAULT NULL COMMENT '负责人ID',
   `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
@@ -1082,7 +1082,7 @@ CREATE TABLE `zjsj_storage_area` (
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产存放场地表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产存放场地表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1105,7 +1105,7 @@ CREATE TABLE `zjsj_turnover_profit` (
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='周转物资收益表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='周转物资收益表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1127,8 +1127,16 @@ CREATE TABLE `zjsj_warehouse` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='仓库信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='仓库信息表';
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping events for database 'eladmin'
+--
+
+--
+-- Dumping routines for database 'eladmin'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1139,4 +1147,4 @@ CREATE TABLE `zjsj_warehouse` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-23  4:22:44
+-- Dump completed on 2025-07-23  6:53:27
