@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `eladmin` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `eladmin`;
 -- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: eladmin
@@ -18,33 +16,6 @@ USE `eladmin`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `code_column`
---
-
-DROP TABLE IF EXISTS `code_column`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `code_column` (
-  `column_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `table_name` varchar(180) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '表名',
-  `column_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '数据库字段名称',
-  `column_type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '数据库字段类型',
-  `dict_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '字典名称',
-  `extra` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '字段额外的参数',
-  `form_show` bit(1) DEFAULT NULL COMMENT '是否表单显示',
-  `form_type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '表单类型',
-  `key_type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '数据库字段键类型',
-  `list_show` bit(1) DEFAULT NULL COMMENT '是否在列表显示',
-  `not_null` bit(1) DEFAULT NULL COMMENT '是否为空',
-  `query_type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '查询类型',
-  `remark` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '描述',
-  `date_annotation` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '日期注解',
-  PRIMARY KEY (`column_id`) USING BTREE,
-  KEY `idx_table_name` (`table_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=406 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='代码生成字段信息存储';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `code_column`
 --
 
@@ -53,29 +24,6 @@ LOCK TABLES `code_column` WRITE;
 INSERT INTO `code_column` VALUES (266,'zjsj_employee','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(267,'zjsj_employee','emp_no','varchar',NULL,'',_binary '',NULL,'UNI',_binary '',_binary '',NULL,'工号',NULL),(268,'zjsj_employee','name','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(269,'zjsj_employee','org_code','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'所属机构',NULL),(270,'zjsj_employee','position','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'职位',NULL),(271,'zjsj_employee','contact','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'联系方式',NULL),(272,'zjsj_employee','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(273,'zjsj_employee','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(274,'zjsj_employee','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(275,'zjsj_employee','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(276,'zjsj_turnover_profit','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(277,'zjsj_turnover_profit','asset_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'周转物资ID',NULL),(278,'zjsj_turnover_profit','year','year',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'统计年份',NULL),(279,'zjsj_turnover_profit','quarter','tinyint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'季度(1-4)',NULL),(280,'zjsj_turnover_profit','lease_days','int',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'租赁天数',NULL),(281,'zjsj_turnover_profit','income','decimal',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'产生收益',NULL),(282,'zjsj_turnover_profit','utilization_rate','decimal',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'使用率(%)',NULL),(283,'zjsj_turnover_profit','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(284,'zjsj_turnover_profit','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(285,'zjsj_turnover_profit','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(286,'zjsj_turnover_profit','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(287,'zjsj_drone_inspection','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(288,'zjsj_drone_inspection','drone_id','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'无人机编号',NULL),(289,'zjsj_drone_inspection','storage_area_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'巡检场地ID',NULL),(290,'zjsj_drone_inspection','path_data','json',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'巡检路径坐标集',NULL),(291,'zjsj_drone_inspection','result_summary','text',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'异常汇总',NULL),(292,'zjsj_drone_inspection','inspection_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(293,'zjsj_drone_inspection','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(294,'zjsj_drone_inspection','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(295,'zjsj_drone_inspection','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(296,'zjsj_drone_inspection','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(297,'zjsj_organization','org_code','varchar',NULL,'',_binary '',NULL,'PRI',_binary '',_binary '',NULL,'机构编码',NULL),(298,'zjsj_organization','org_name','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'机构名称',NULL),(299,'zjsj_organization','org_type','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(300,'zjsj_organization','parent_org_code','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'上级机构编码',NULL),(301,'zjsj_organization','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(302,'zjsj_organization','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(303,'zjsj_organization','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(304,'zjsj_organization','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(305,'zjsj_asset_inout','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(306,'zjsj_asset_inout','asset_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'资产ID',NULL),(307,'zjsj_asset_inout','type','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(308,'zjsj_asset_inout','ref_order_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'关联单号',NULL),(309,'zjsj_asset_inout','warehouse_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'仓库ID',NULL),(310,'zjsj_asset_inout','before_location','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'移库前货位',NULL),(311,'zjsj_asset_inout','after_location','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'移库后货位',NULL),(312,'zjsj_asset_inout','operator_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'操作人',NULL),(313,'zjsj_asset_inout','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(314,'zjsj_asset_inout','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(315,'zjsj_asset_inout','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(316,'zjsj_asset_inout','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(317,'zjsj_electronic_tag','id','varchar',NULL,'',_binary '',NULL,'PRI',_binary '',_binary '',NULL,'标签物理ID',NULL),(318,'zjsj_electronic_tag','type','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(319,'zjsj_electronic_tag','bind_asset_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'绑定资产ID',NULL),(320,'zjsj_electronic_tag','bind_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'绑定时间',NULL),(321,'zjsj_electronic_tag','health_status','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'',NULL),(322,'zjsj_electronic_tag','last_check_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'最后检测时间',NULL),(323,'zjsj_electronic_tag','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(324,'zjsj_electronic_tag','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(325,'zjsj_electronic_tag','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(326,'zjsj_electronic_tag','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(327,'zjsj_maintenance_record','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(328,'zjsj_maintenance_record','asset_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'资产ID',NULL),(329,'zjsj_maintenance_record','type','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(330,'zjsj_maintenance_record','cost','decimal',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'维护费用',NULL),(331,'zjsj_maintenance_record','content','text',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'维护内容',NULL),(332,'zjsj_maintenance_record','result','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'处理结果',NULL),(333,'zjsj_maintenance_record','maintenance_date','date',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(334,'zjsj_maintenance_record','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(335,'zjsj_maintenance_record','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(336,'zjsj_maintenance_record','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(337,'zjsj_maintenance_record','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(338,'zjsj_lease_order','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(339,'zjsj_lease_order','order_no','varchar',NULL,'',_binary '',NULL,'UNI',_binary '',_binary '',NULL,'租赁单号',NULL),(340,'zjsj_lease_order','project_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'工程项目ID',NULL),(341,'zjsj_lease_order','start_date','date',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'租赁开始日',NULL),(342,'zjsj_lease_order','end_date','date',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'租赁结束日',NULL),(343,'zjsj_lease_order','total_fee','decimal',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'租赁总费用',NULL),(344,'zjsj_lease_order','status','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'',NULL),(345,'zjsj_lease_order','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(346,'zjsj_lease_order','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(347,'zjsj_lease_order','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(348,'zjsj_lease_order','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(349,'zjsj_warehouse','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(350,'zjsj_warehouse','name','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'仓库名称',NULL),(351,'zjsj_warehouse','code','varchar',NULL,'',_binary '',NULL,'UNI',_binary '',_binary '\0',NULL,'仓库编码',NULL),(352,'zjsj_warehouse','storage_area_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'所属场地ID',NULL),(353,'zjsj_warehouse','capacity','int',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'仓库容量(平方米)',NULL),(354,'zjsj_warehouse','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(355,'zjsj_warehouse','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(356,'zjsj_warehouse','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(357,'zjsj_warehouse','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(358,'zjsj_project','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(359,'zjsj_project','project_no','varchar',NULL,'',_binary '',NULL,'UNI',_binary '',_binary '',NULL,'项目编号',NULL),(360,'zjsj_project','name','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'项目名称',NULL),(361,'zjsj_project','type','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'项目类型',NULL),(362,'zjsj_project','scale','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'项目规模描述',NULL),(363,'zjsj_project','location','point',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'地理位置(GIS坐标)',NULL),(364,'zjsj_project','responsible_org','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'责任主体单位',NULL),(365,'zjsj_project','status','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'',NULL),(366,'zjsj_project','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(367,'zjsj_project','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(368,'zjsj_project','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(369,'zjsj_project','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(370,'zjsj_storage_area','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'',NULL),(371,'zjsj_storage_area','name','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'场地名称',NULL),(372,'zjsj_storage_area','type','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(373,'zjsj_storage_area','location','point',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'地理坐标',NULL),(374,'zjsj_storage_area','capacity','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'场地容量描述',NULL),(375,'zjsj_storage_area','manager_emp_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'负责人ID',NULL),(376,'zjsj_storage_area','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(377,'zjsj_storage_area','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(378,'zjsj_storage_area','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(379,'zjsj_storage_area','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(380,'zjsj_asset','id','bigint',NULL,'auto_increment',_binary '',NULL,'PRI',_binary '',_binary '\0',NULL,'资产唯一ID',NULL),(381,'zjsj_asset','asset_no','varchar',NULL,'',_binary '',NULL,'UNI',_binary '',_binary '',NULL,'固定资产编号(RFID/UUID)',NULL),(382,'zjsj_asset','name','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'资产名称',NULL),(383,'zjsj_asset','category_code','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'分类编码',NULL),(384,'zjsj_asset','model','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'规格型号',NULL),(385,'zjsj_asset','unit','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'计量单位',NULL),(386,'zjsj_asset','original_value','decimal',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'资产原值',NULL),(387,'zjsj_asset','status','enum',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'',NULL),(388,'zjsj_asset','is_turnover','tinyint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'是否周转物资',NULL),(389,'zjsj_asset','storage_area_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'存放场地ID',NULL),(390,'zjsj_asset','warehouse_id','bigint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'仓库ID',NULL),(391,'zjsj_asset','storage_location','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'货位号',NULL),(392,'zjsj_asset','purchase_date','date',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'购置日期',NULL),(393,'zjsj_asset','estimated_life','int',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'预计使用年限',NULL),(394,'zjsj_asset','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(395,'zjsj_asset','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(396,'zjsj_asset','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(397,'zjsj_asset','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL),(398,'zjsj_asset_category','category_code','varchar',NULL,'',_binary '',NULL,'PRI',_binary '',_binary '',NULL,'分类编码',NULL),(399,'zjsj_asset_category','category_name','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '',NULL,'分类名称',NULL),(400,'zjsj_asset_category','parent_code','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'上级分类编码',NULL),(401,'zjsj_asset_category','is_equipment','tinyint',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'是否设备类',NULL),(402,'zjsj_asset_category','create_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建者',NULL),(403,'zjsj_asset_category','update_by','varchar',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新者',NULL),(404,'zjsj_asset_category','create_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'创建日期',NULL),(405,'zjsj_asset_category','update_time','datetime',NULL,'',_binary '',NULL,'',_binary '',_binary '\0',NULL,'更新时间',NULL);
 /*!40000 ALTER TABLE `code_column` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `code_config`
---
-
-DROP TABLE IF EXISTS `code_config`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `code_config` (
-  `config_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `table_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '表名',
-  `author` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '作者',
-  `cover` bit(1) DEFAULT NULL COMMENT '是否覆盖',
-  `module_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '模块名称',
-  `pack` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '至于哪个包下',
-  `path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '前端代码生成的路径',
-  `api_path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '前端Api文件路径',
-  `prefix` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '表前缀',
-  `api_alias` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '接口名称',
-  PRIMARY KEY (`config_id`) USING BTREE,
-  KEY `idx_table_name` (`table_name`(100))
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='代码生成器配置';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `code_config`
@@ -88,30 +36,6 @@ INSERT INTO `code_config` VALUES (9,'','',_binary '','','','','\\','',''),(10,'
 UNLOCK TABLES;
 
 --
--- Table structure for table `mnt_app`
---
-
-DROP TABLE IF EXISTS `mnt_app`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mnt_app` (
-  `app_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '应用名称',
-  `upload_path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '上传目录',
-  `deploy_path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '部署路径',
-  `backup_path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '备份路径',
-  `port` int DEFAULT NULL COMMENT '应用端口',
-  `start_script` varchar(4000) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '启动脚本',
-  `deploy_script` varchar(4000) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '部署脚本',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`app_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='应用管理';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `mnt_app`
 --
 
@@ -119,27 +43,6 @@ LOCK TABLES `mnt_app` WRITE;
 /*!40000 ALTER TABLE `mnt_app` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mnt_app` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `mnt_database`
---
-
-DROP TABLE IF EXISTS `mnt_database`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mnt_database` (
-  `db_id` varchar(50) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'ID',
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
-  `jdbc_url` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'jdbc连接',
-  `user_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '账号',
-  `pwd` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '密码',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`db_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='数据库管理';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `mnt_database`
@@ -152,25 +55,6 @@ INSERT INTO `mnt_database` VALUES ('d265fc8a44074770bfe3392ecec8990a','eladmin_l
 UNLOCK TABLES;
 
 --
--- Table structure for table `mnt_deploy`
---
-
-DROP TABLE IF EXISTS `mnt_deploy`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mnt_deploy` (
-  `deploy_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `app_id` bigint DEFAULT NULL COMMENT '应用编号',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`deploy_id`) USING BTREE,
-  KEY `idx_app_id` (`app_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='部署管理';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `mnt_deploy`
 --
 
@@ -178,24 +62,6 @@ LOCK TABLES `mnt_deploy` WRITE;
 /*!40000 ALTER TABLE `mnt_deploy` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mnt_deploy` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `mnt_deploy_history`
---
-
-DROP TABLE IF EXISTS `mnt_deploy_history`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mnt_deploy_history` (
-  `history_id` varchar(50) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'ID',
-  `app_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '应用名称',
-  `deploy_date` datetime NOT NULL COMMENT '部署日期',
-  `deploy_user` varchar(50) COLLATE utf8mb4_general_ci NOT NULL COMMENT '部署用户',
-  `ip` varchar(20) COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务器IP',
-  `deploy_id` bigint DEFAULT NULL COMMENT '部署编号',
-  PRIMARY KEY (`history_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='部署历史管理';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `mnt_deploy_history`
@@ -207,22 +73,6 @@ LOCK TABLES `mnt_deploy_history` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `mnt_deploy_server`
---
-
-DROP TABLE IF EXISTS `mnt_deploy_server`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mnt_deploy_server` (
-  `deploy_id` bigint NOT NULL COMMENT '部署ID',
-  `server_id` bigint NOT NULL COMMENT '服务ID',
-  PRIMARY KEY (`deploy_id`,`server_id`) USING BTREE,
-  KEY `idx_deploy_id` (`deploy_id`),
-  KEY `idx_server_id` (`server_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='应用与服务器关联';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `mnt_deploy_server`
 --
 
@@ -230,29 +80,6 @@ LOCK TABLES `mnt_deploy_server` WRITE;
 /*!40000 ALTER TABLE `mnt_deploy_server` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mnt_deploy_server` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `mnt_server`
---
-
-DROP TABLE IF EXISTS `mnt_server`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mnt_server` (
-  `server_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `account` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '账号',
-  `ip` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'IP地址',
-  `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
-  `password` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '密码',
-  `port` int DEFAULT NULL COMMENT '端口',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`server_id`) USING BTREE,
-  KEY `idx_ip` (`ip`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='服务器管理';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `mnt_server`
@@ -264,24 +91,6 @@ LOCK TABLES `mnt_server` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `qrtz_blob_triggers`
---
-
-DROP TABLE IF EXISTS `qrtz_blob_triggers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_blob_triggers` (
-  `sched_name` varchar(120) NOT NULL,
-  `trigger_name` varchar(200) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  `blob_data` blob,
-  PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
-  KEY `sched_name` (`sched_name`,`trigger_name`,`trigger_group`),
-  CONSTRAINT `qrtz_blob_triggers_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `qrtz_triggers` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `qrtz_blob_triggers`
 --
 
@@ -289,21 +98,6 @@ LOCK TABLES `qrtz_blob_triggers` WRITE;
 /*!40000 ALTER TABLE `qrtz_blob_triggers` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qrtz_blob_triggers` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `qrtz_calendars`
---
-
-DROP TABLE IF EXISTS `qrtz_calendars`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_calendars` (
-  `sched_name` varchar(120) NOT NULL,
-  `calendar_name` varchar(200) NOT NULL,
-  `calendar` blob NOT NULL,
-  PRIMARY KEY (`sched_name`,`calendar_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `qrtz_calendars`
@@ -315,24 +109,6 @@ LOCK TABLES `qrtz_calendars` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `qrtz_cron_triggers`
---
-
-DROP TABLE IF EXISTS `qrtz_cron_triggers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_cron_triggers` (
-  `sched_name` varchar(120) NOT NULL,
-  `trigger_name` varchar(200) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  `cron_expression` varchar(120) NOT NULL,
-  `time_zone_id` varchar(80) DEFAULT NULL,
-  PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
-  CONSTRAINT `qrtz_cron_triggers_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `qrtz_triggers` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `qrtz_cron_triggers`
 --
 
@@ -340,37 +116,6 @@ LOCK TABLES `qrtz_cron_triggers` WRITE;
 /*!40000 ALTER TABLE `qrtz_cron_triggers` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qrtz_cron_triggers` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `qrtz_fired_triggers`
---
-
-DROP TABLE IF EXISTS `qrtz_fired_triggers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_fired_triggers` (
-  `sched_name` varchar(120) NOT NULL,
-  `entry_id` varchar(95) NOT NULL,
-  `trigger_name` varchar(200) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  `instance_name` varchar(200) NOT NULL,
-  `fired_time` bigint NOT NULL,
-  `sched_time` bigint NOT NULL,
-  `priority` int NOT NULL,
-  `state` varchar(16) NOT NULL,
-  `job_name` varchar(200) DEFAULT NULL,
-  `job_group` varchar(200) DEFAULT NULL,
-  `is_nonconcurrent` varchar(1) DEFAULT NULL,
-  `requests_recovery` varchar(1) DEFAULT NULL,
-  PRIMARY KEY (`sched_name`,`entry_id`),
-  KEY `idx_qrtz_ft_trig_inst_name` (`sched_name`,`instance_name`),
-  KEY `idx_qrtz_ft_inst_job_req_rcvry` (`sched_name`,`instance_name`,`requests_recovery`),
-  KEY `idx_qrtz_ft_j_g` (`sched_name`,`job_name`,`job_group`),
-  KEY `idx_qrtz_ft_jg` (`sched_name`,`job_group`),
-  KEY `idx_qrtz_ft_t_g` (`sched_name`,`trigger_name`,`trigger_group`),
-  KEY `idx_qrtz_ft_tg` (`sched_name`,`trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `qrtz_fired_triggers`
@@ -382,30 +127,6 @@ LOCK TABLES `qrtz_fired_triggers` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `qrtz_job_details`
---
-
-DROP TABLE IF EXISTS `qrtz_job_details`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_job_details` (
-  `sched_name` varchar(120) NOT NULL,
-  `job_name` varchar(200) NOT NULL,
-  `job_group` varchar(200) NOT NULL,
-  `description` varchar(250) DEFAULT NULL,
-  `job_class_name` varchar(250) NOT NULL,
-  `is_durable` varchar(1) NOT NULL,
-  `is_nonconcurrent` varchar(1) NOT NULL,
-  `is_update_data` varchar(1) NOT NULL,
-  `requests_recovery` varchar(1) NOT NULL,
-  `job_data` blob,
-  PRIMARY KEY (`sched_name`,`job_name`,`job_group`),
-  KEY `idx_qrtz_j_req_recovery` (`sched_name`,`requests_recovery`),
-  KEY `idx_qrtz_j_grp` (`sched_name`,`job_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `qrtz_job_details`
 --
 
@@ -413,20 +134,6 @@ LOCK TABLES `qrtz_job_details` WRITE;
 /*!40000 ALTER TABLE `qrtz_job_details` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qrtz_job_details` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `qrtz_locks`
---
-
-DROP TABLE IF EXISTS `qrtz_locks`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_locks` (
-  `sched_name` varchar(120) NOT NULL,
-  `lock_name` varchar(40) NOT NULL,
-  PRIMARY KEY (`sched_name`,`lock_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `qrtz_locks`
@@ -438,20 +145,6 @@ LOCK TABLES `qrtz_locks` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `qrtz_paused_trigger_grps`
---
-
-DROP TABLE IF EXISTS `qrtz_paused_trigger_grps`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_paused_trigger_grps` (
-  `sched_name` varchar(120) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  PRIMARY KEY (`sched_name`,`trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `qrtz_paused_trigger_grps`
 --
 
@@ -459,22 +152,6 @@ LOCK TABLES `qrtz_paused_trigger_grps` WRITE;
 /*!40000 ALTER TABLE `qrtz_paused_trigger_grps` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qrtz_paused_trigger_grps` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `qrtz_scheduler_state`
---
-
-DROP TABLE IF EXISTS `qrtz_scheduler_state`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_scheduler_state` (
-  `sched_name` varchar(120) NOT NULL,
-  `instance_name` varchar(200) NOT NULL,
-  `last_checkin_time` bigint NOT NULL,
-  `checkin_interval` bigint NOT NULL,
-  PRIMARY KEY (`sched_name`,`instance_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `qrtz_scheduler_state`
@@ -486,25 +163,6 @@ LOCK TABLES `qrtz_scheduler_state` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `qrtz_simple_triggers`
---
-
-DROP TABLE IF EXISTS `qrtz_simple_triggers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_simple_triggers` (
-  `sched_name` varchar(120) NOT NULL,
-  `trigger_name` varchar(200) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  `repeat_count` bigint NOT NULL,
-  `repeat_interval` bigint NOT NULL,
-  `times_triggered` bigint NOT NULL,
-  PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
-  CONSTRAINT `qrtz_simple_triggers_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `qrtz_triggers` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `qrtz_simple_triggers`
 --
 
@@ -512,33 +170,6 @@ LOCK TABLES `qrtz_simple_triggers` WRITE;
 /*!40000 ALTER TABLE `qrtz_simple_triggers` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qrtz_simple_triggers` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `qrtz_simprop_triggers`
---
-
-DROP TABLE IF EXISTS `qrtz_simprop_triggers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_simprop_triggers` (
-  `sched_name` varchar(120) NOT NULL,
-  `trigger_name` varchar(200) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  `str_prop_1` varchar(512) DEFAULT NULL,
-  `str_prop_2` varchar(512) DEFAULT NULL,
-  `str_prop_3` varchar(512) DEFAULT NULL,
-  `int_prop_1` int DEFAULT NULL,
-  `int_prop_2` int DEFAULT NULL,
-  `long_prop_1` bigint DEFAULT NULL,
-  `long_prop_2` bigint DEFAULT NULL,
-  `dec_prop_1` decimal(13,4) DEFAULT NULL,
-  `dec_prop_2` decimal(13,4) DEFAULT NULL,
-  `bool_prop_1` varchar(1) DEFAULT NULL,
-  `bool_prop_2` varchar(1) DEFAULT NULL,
-  PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
-  CONSTRAINT `qrtz_simprop_triggers_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `qrtz_triggers` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `qrtz_simprop_triggers`
@@ -550,47 +181,6 @@ LOCK TABLES `qrtz_simprop_triggers` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `qrtz_triggers`
---
-
-DROP TABLE IF EXISTS `qrtz_triggers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrtz_triggers` (
-  `sched_name` varchar(120) NOT NULL,
-  `trigger_name` varchar(200) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  `job_name` varchar(200) NOT NULL,
-  `job_group` varchar(200) NOT NULL,
-  `description` varchar(250) DEFAULT NULL,
-  `next_fire_time` bigint DEFAULT NULL,
-  `prev_fire_time` bigint DEFAULT NULL,
-  `priority` int DEFAULT NULL,
-  `trigger_state` varchar(16) NOT NULL,
-  `trigger_type` varchar(8) NOT NULL,
-  `start_time` bigint NOT NULL,
-  `end_time` bigint DEFAULT NULL,
-  `calendar_name` varchar(200) DEFAULT NULL,
-  `misfire_instr` smallint DEFAULT NULL,
-  `job_data` blob,
-  PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
-  KEY `idx_qrtz_t_j` (`sched_name`,`job_name`,`job_group`),
-  KEY `idx_qrtz_t_jg` (`sched_name`,`job_group`),
-  KEY `idx_qrtz_t_c` (`sched_name`,`calendar_name`),
-  KEY `idx_qrtz_t_g` (`sched_name`,`trigger_group`),
-  KEY `idx_qrtz_t_state` (`sched_name`,`trigger_state`),
-  KEY `idx_qrtz_t_n_state` (`sched_name`,`trigger_name`,`trigger_group`,`trigger_state`),
-  KEY `idx_qrtz_t_n_g_state` (`sched_name`,`trigger_group`,`trigger_state`),
-  KEY `idx_qrtz_t_next_fire_time` (`sched_name`,`next_fire_time`),
-  KEY `idx_qrtz_t_nft_st` (`sched_name`,`trigger_state`,`next_fire_time`),
-  KEY `idx_qrtz_t_nft_misfire` (`sched_name`,`misfire_instr`,`next_fire_time`),
-  KEY `idx_qrtz_t_nft_st_misfire` (`sched_name`,`misfire_instr`,`next_fire_time`,`trigger_state`),
-  KEY `idx_qrtz_t_nft_st_misfire_grp` (`sched_name`,`misfire_instr`,`next_fire_time`,`trigger_group`,`trigger_state`),
-  CONSTRAINT `qrtz_triggers_ibfk_1` FOREIGN KEY (`sched_name`, `job_name`, `job_group`) REFERENCES `qrtz_job_details` (`sched_name`, `job_name`, `job_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `qrtz_triggers`
 --
 
@@ -598,30 +188,6 @@ LOCK TABLES `qrtz_triggers` WRITE;
 /*!40000 ALTER TABLE `qrtz_triggers` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qrtz_triggers` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `sys_dept`
---
-
-DROP TABLE IF EXISTS `sys_dept`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_dept` (
-  `dept_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `pid` bigint DEFAULT NULL COMMENT '上级部门',
-  `sub_count` int DEFAULT '0' COMMENT '子部门数目',
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
-  `dept_sort` int DEFAULT '999' COMMENT '排序',
-  `enabled` bit(1) NOT NULL COMMENT '状态',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`dept_id`) USING BTREE,
-  KEY `idx_pid` (`pid`),
-  KEY `idx_enabled` (`enabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='部门';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_dept`
@@ -634,25 +200,6 @@ INSERT INTO `sys_dept` VALUES (2,7,1,'研发部',3,_binary '','admin','admin','
 UNLOCK TABLES;
 
 --
--- Table structure for table `sys_dict`
---
-
-DROP TABLE IF EXISTS `sys_dict`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_dict` (
-  `dict_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '字典名称',
-  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '描述',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`dict_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='数据字典';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `sys_dict`
 --
 
@@ -661,28 +208,6 @@ LOCK TABLES `sys_dict` WRITE;
 INSERT INTO `sys_dict` VALUES (1,'user_status','用户状态',NULL,NULL,'2019-10-27 20:31:36',NULL),(4,'dept_status','部门状态',NULL,NULL,'2019-10-27 20:31:36',NULL),(5,'job_status','岗位状态',NULL,'admin','2019-10-27 20:31:36','2025-01-14 15:48:29');
 /*!40000 ALTER TABLE `sys_dict` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `sys_dict_detail`
---
-
-DROP TABLE IF EXISTS `sys_dict_detail`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_dict_detail` (
-  `detail_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `dict_id` bigint DEFAULT NULL COMMENT '字典id',
-  `label` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '字典标签',
-  `value` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '字典值',
-  `dict_sort` int DEFAULT NULL COMMENT '排序',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`detail_id`) USING BTREE,
-  KEY `idx_dict_id` (`dict_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='数据字典详情';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_dict_detail`
@@ -695,28 +220,6 @@ INSERT INTO `sys_dict_detail` VALUES (1,1,'激活','true',1,NULL,NULL,'2019-10-2
 UNLOCK TABLES;
 
 --
--- Table structure for table `sys_job`
---
-
-DROP TABLE IF EXISTS `sys_job`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_job` (
-  `job_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `name` varchar(180) COLLATE utf8mb4_general_ci NOT NULL COMMENT '岗位名称',
-  `enabled` bit(1) NOT NULL COMMENT '岗位状态',
-  `job_sort` int DEFAULT NULL COMMENT '排序',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`job_id`) USING BTREE,
-  UNIQUE KEY `uniq_name` (`name`),
-  KEY `idx_enabled` (`enabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='岗位';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `sys_job`
 --
 
@@ -725,32 +228,6 @@ LOCK TABLES `sys_job` WRITE;
 INSERT INTO `sys_job` VALUES (8,'人事专员',_binary '',3,NULL,NULL,'2019-03-29 14:52:28',NULL),(10,'产品经理',_binary '',4,NULL,NULL,'2019-03-29 14:55:51',NULL),(11,'全栈开发',_binary '',2,NULL,'admin','2019-03-31 13:39:30','2020-05-05 11:33:43'),(12,'软件测试',_binary '',5,NULL,'admin','2019-03-31 13:39:43','2020-05-10 19:56:26');
 /*!40000 ALTER TABLE `sys_job` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `sys_log`
---
-
-DROP TABLE IF EXISTS `sys_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_log` (
-  `log_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '描述',
-  `log_type` varchar(10) COLLATE utf8mb4_general_ci NOT NULL COMMENT '日志类型：INFI/ERROR',
-  `method` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '方法名',
-  `params` text COLLATE utf8mb4_general_ci COMMENT '参数',
-  `request_ip` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '请求IP',
-  `time` bigint DEFAULT NULL COMMENT '执行时间',
-  `username` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '用户名',
-  `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '地址',
-  `browser` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '浏览器',
-  `exception_detail` text COLLATE utf8mb4_general_ci COMMENT '异常',
-  `create_time` datetime NOT NULL COMMENT '创建时间',
-  PRIMARY KEY (`log_id`) USING BTREE,
-  KEY `idx_create_time_index` (`create_time`),
-  KEY `idx_log_type` (`log_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=3673 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='系统日志';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_log`
@@ -763,39 +240,6 @@ INSERT INTO `sys_log` VALUES (3636,'用户登录','INFO','me.zhengjie.modules.se
 UNLOCK TABLES;
 
 --
--- Table structure for table `sys_menu`
---
-
-DROP TABLE IF EXISTS `sys_menu`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_menu` (
-  `menu_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `pid` bigint DEFAULT NULL COMMENT '上级菜单ID',
-  `sub_count` int DEFAULT '0' COMMENT '子菜单数目',
-  `type` int DEFAULT NULL COMMENT '菜单类型',
-  `title` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '菜单标题',
-  `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '组件名称',
-  `component` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '组件',
-  `menu_sort` int DEFAULT NULL COMMENT '排序',
-  `icon` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '图标',
-  `path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '链接地址',
-  `i_frame` bit(1) DEFAULT NULL COMMENT '是否外链',
-  `cache` bit(1) DEFAULT b'0' COMMENT '缓存',
-  `hidden` bit(1) DEFAULT b'0' COMMENT '隐藏',
-  `permission` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '权限',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`menu_id`) USING BTREE,
-  UNIQUE KEY `uniq_name` (`name`),
-  UNIQUE KEY `uniq_title` (`title`),
-  KEY `idx_pid` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='系统菜单';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `sys_menu`
 --
 
@@ -804,35 +248,6 @@ LOCK TABLES `sys_menu` WRITE;
 INSERT INTO `sys_menu` VALUES (1,NULL,7,0,'系统管理',NULL,NULL,1,'system','system',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,'admin','2018-12-18 15:11:29','2025-01-14 15:48:18'),(2,1,3,1,'用户管理','User','system/user/index',2,'peoples','user',_binary '\0',_binary '\0',_binary '\0','user:list',NULL,NULL,'2018-12-18 15:14:44',NULL),(3,1,3,1,'角色管理','Role','system/role/index',3,'role','role',_binary '\0',_binary '\0',_binary '\0','roles:list',NULL,NULL,'2018-12-18 15:16:07',NULL),(5,1,3,1,'菜单管理','Menu','system/menu/index',5,'menu','menu',_binary '\0',_binary '\0',_binary '\0','menu:list',NULL,NULL,'2018-12-18 15:17:28',NULL),(6,NULL,5,0,'系统监控',NULL,NULL,10,'monitor','monitor',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2018-12-18 15:17:48',NULL),(7,6,0,1,'操作日志','Log','monitor/log/index',11,'log','logs',_binary '\0',_binary '',_binary '\0',NULL,NULL,'admin','2018-12-18 15:18:26','2020-06-06 13:11:57'),(9,6,0,1,'SQL监控','Sql','monitor/sql/index',18,'sqlMonitor','druid',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2018-12-18 15:19:34',NULL),(10,NULL,5,0,'组件管理',NULL,NULL,50,'zujian','components',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2018-12-19 13:38:16',NULL),(11,10,0,1,'图标库','Icons','components/icons/index',51,'icon','icon',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2018-12-19 13:38:49',NULL),(14,36,0,1,'邮件工具','Email','tools/email/index',35,'email','email',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2018-12-27 10:13:09',NULL),(15,10,0,1,'富文本','Editor','components/Editor',52,'fwb','tinymce',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2018-12-27 11:58:25',NULL),(18,36,3,1,'存储管理','Storage','tools/storage/index',34,'qiniu','storage',_binary '\0',_binary '\0',_binary '\0','storage:list',NULL,NULL,'2018-12-31 11:12:15',NULL),(19,36,0,1,'支付宝工具','AliPay','tools/aliPay/index',37,'alipay','aliPay',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2018-12-31 14:52:38',NULL),(21,NULL,3,0,'多级菜单',NULL,'',900,'menu','nested',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,'admin','2019-01-04 16:22:03','2020-06-21 17:27:35'),(22,21,2,0,'二级菜单1',NULL,'',999,'menu','menu1',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,'admin','2019-01-04 16:23:29','2020-06-21 17:27:20'),(23,21,0,1,'二级菜单2',NULL,'nested/menu2/index',999,'menu','menu2',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-01-04 16:23:57',NULL),(24,22,0,1,'三级菜单1','Test','nested/menu1/menu1-1',999,'menu','menu1-1',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-01-04 16:24:48',NULL),(27,22,0,1,'三级菜单2',NULL,'nested/menu1/menu1-2',999,'menu','menu1-2',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-01-07 17:27:32',NULL),(28,1,3,1,'任务调度','Timing','system/timing/index',999,'timing','timing',_binary '\0',_binary '\0',_binary '\0','timing:list',NULL,NULL,'2019-01-07 20:34:40',NULL),(30,36,0,1,'代码生成','GeneratorIndex','generator/index',32,'dev','generator',_binary '\0',_binary '',_binary '\0',NULL,NULL,NULL,'2019-01-11 15:45:55',NULL),(32,6,0,1,'异常日志','ErrorLog','monitor/log/errorLog',12,'error','errorLog',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-01-13 13:49:03',NULL),(33,10,0,1,'Markdown','Markdown','components/MarkDown',53,'markdown','markdown',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-03-08 13:46:44',NULL),(34,10,0,1,'Yaml编辑器','YamlEdit','components/YamlEdit',54,'dev','yaml',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-03-08 15:49:40',NULL),(35,1,3,1,'部门管理','Dept','system/dept/index',6,'dept','dept',_binary '\0',_binary '\0',_binary '\0','dept:list',NULL,NULL,'2019-03-25 09:46:00',NULL),(36,NULL,6,0,'系统工具',NULL,'',30,'sys-tools','sys-tools',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-03-29 10:57:35',NULL),(37,1,3,1,'岗位管理','Job','system/job/index',7,'Steve-Jobs','job',_binary '\0',_binary '\0',_binary '\0','job:list',NULL,NULL,'2019-03-29 13:51:18',NULL),(39,1,3,1,'字典管理','Dict','system/dict/index',8,'dictionary','dict',_binary '\0',_binary '\0',_binary '\0','dict:list',NULL,NULL,'2019-04-10 11:49:04',NULL),(41,6,0,1,'在线用户','OnlineUser','monitor/online/index',10,'Steve-Jobs','online',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-10-26 22:08:43',NULL),(44,2,0,2,'用户新增',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','user:add',NULL,NULL,'2019-10-29 10:59:46',NULL),(45,2,0,2,'用户编辑',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','user:edit',NULL,NULL,'2019-10-29 11:00:08',NULL),(46,2,0,2,'用户删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','user:del',NULL,NULL,'2019-10-29 11:00:23',NULL),(48,3,0,2,'角色创建',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','roles:add',NULL,NULL,'2019-10-29 12:45:34',NULL),(49,3,0,2,'角色修改',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','roles:edit',NULL,NULL,'2019-10-29 12:46:16',NULL),(50,3,0,2,'角色删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','roles:del',NULL,NULL,'2019-10-29 12:46:51',NULL),(52,5,0,2,'菜单新增',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','menu:add',NULL,NULL,'2019-10-29 12:55:07',NULL),(53,5,0,2,'菜单编辑',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','menu:edit',NULL,NULL,'2019-10-29 12:55:40',NULL),(54,5,0,2,'菜单删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','menu:del',NULL,NULL,'2019-10-29 12:56:00',NULL),(56,35,0,2,'部门新增',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','dept:add',NULL,NULL,'2019-10-29 12:57:09',NULL),(57,35,0,2,'部门编辑',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','dept:edit',NULL,NULL,'2019-10-29 12:57:27',NULL),(58,35,0,2,'部门删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','dept:del',NULL,NULL,'2019-10-29 12:57:41',NULL),(60,37,0,2,'岗位新增',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','job:add',NULL,NULL,'2019-10-29 12:58:27',NULL),(61,37,0,2,'岗位编辑',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','job:edit',NULL,NULL,'2019-10-29 12:58:45',NULL),(62,37,0,2,'岗位删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','job:del',NULL,NULL,'2019-10-29 12:59:04',NULL),(64,39,0,2,'字典新增',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','dict:add',NULL,NULL,'2019-10-29 13:00:17',NULL),(65,39,0,2,'字典编辑',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','dict:edit',NULL,NULL,'2019-10-29 13:00:42',NULL),(66,39,0,2,'字典删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','dict:del',NULL,NULL,'2019-10-29 13:00:59',NULL),(73,28,0,2,'任务新增',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','timing:add',NULL,NULL,'2019-10-29 13:07:28',NULL),(74,28,0,2,'任务编辑',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','timing:edit',NULL,NULL,'2019-10-29 13:07:41',NULL),(75,28,0,2,'任务删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','timing:del',NULL,NULL,'2019-10-29 13:07:54',NULL),(77,18,0,2,'上传文件',NULL,'',2,'','',_binary '\0',_binary '\0',_binary '\0','storage:add',NULL,NULL,'2019-10-29 13:09:09',NULL),(78,18,0,2,'文件编辑',NULL,'',3,'','',_binary '\0',_binary '\0',_binary '\0','storage:edit',NULL,NULL,'2019-10-29 13:09:22',NULL),(79,18,0,2,'文件删除',NULL,'',4,'','',_binary '\0',_binary '\0',_binary '\0','storage:del',NULL,NULL,'2019-10-29 13:09:34',NULL),(80,6,0,1,'服务监控','ServerMonitor','monitor/server/index',14,'codeConsole','server',_binary '\0',_binary '\0',_binary '\0','monitor:list',NULL,'admin','2019-11-07 13:06:39','2020-05-04 18:20:50'),(82,36,0,1,'生成配置','GeneratorConfig','generator/config',33,'dev','generator/config/:tableName',_binary '\0',_binary '',_binary '','',NULL,NULL,'2019-11-17 20:08:56',NULL),(83,10,0,1,'图表库','Echarts','components/Echarts',50,'chart','echarts',_binary '\0',_binary '',_binary '\0','',NULL,NULL,'2019-11-21 09:04:32',NULL),(90,NULL,5,1,'运维管理','Mnt','',20,'mnt','mnt',_binary '\0',_binary '\0',_binary '\0',NULL,NULL,NULL,'2019-11-09 10:31:08',NULL),(92,90,3,1,'服务器','ServerDeploy','maint/server/index',22,'server','maint/serverDeploy',_binary '\0',_binary '\0',_binary '\0','serverDeploy:list',NULL,NULL,'2019-11-10 10:29:25',NULL),(93,90,3,1,'应用管理','App','maint/app/index',23,'app','maint/app',_binary '\0',_binary '\0',_binary '\0','app:list',NULL,NULL,'2019-11-10 11:05:16',NULL),(94,90,3,1,'部署管理','Deploy','maint/deploy/index',24,'deploy','maint/deploy',_binary '\0',_binary '\0',_binary '\0','deploy:list',NULL,NULL,'2019-11-10 15:56:55',NULL),(97,90,1,1,'部署备份','DeployHistory','maint/deployHistory/index',25,'backup','maint/deployHistory',_binary '\0',_binary '\0',_binary '\0','deployHistory:list',NULL,NULL,'2019-11-10 16:49:44',NULL),(98,90,3,1,'数据库管理','Database','maint/database/index',26,'database','maint/database',_binary '\0',_binary '\0',_binary '\0','database:list',NULL,NULL,'2019-11-10 20:40:04',NULL),(102,97,0,2,'删除',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','deployHistory:del',NULL,NULL,'2019-11-17 09:32:48',NULL),(103,92,0,2,'服务器新增',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','serverDeploy:add',NULL,NULL,'2019-11-17 11:08:33',NULL),(104,92,0,2,'服务器编辑',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','serverDeploy:edit',NULL,NULL,'2019-11-17 11:08:57',NULL),(105,92,0,2,'服务器删除',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','serverDeploy:del',NULL,NULL,'2019-11-17 11:09:15',NULL),(106,93,0,2,'应用新增',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','app:add',NULL,NULL,'2019-11-17 11:10:03',NULL),(107,93,0,2,'应用编辑',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','app:edit',NULL,NULL,'2019-11-17 11:10:28',NULL),(108,93,0,2,'应用删除',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','app:del',NULL,NULL,'2019-11-17 11:10:55',NULL),(109,94,0,2,'部署新增',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','deploy:add',NULL,NULL,'2019-11-17 11:11:22',NULL),(110,94,0,2,'部署编辑',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','deploy:edit',NULL,NULL,'2019-11-17 11:11:41',NULL),(111,94,0,2,'部署删除',NULL,'',999,'','',_binary '\0',_binary '\0',_binary '\0','deploy:del',NULL,NULL,'2019-11-17 11:12:01',NULL),(116,36,0,1,'生成预览','Preview','generator/preview',999,'java','generator/preview/:tableName',_binary '\0',_binary '',_binary '',NULL,NULL,NULL,'2019-11-26 14:54:36',NULL),(117,NULL,1,0,'资产管理',NULL,NULL,999,'app','/zjsj',_binary '\0',_binary '\0',_binary '\0',NULL,'admin','admin','2025-07-23 09:25:46','2025-07-23 09:28:48'),(118,117,0,1,'员工档案',NULL,'zjsj/employee/index',999,'app','employee',_binary '\0',_binary '\0',_binary '\0',NULL,'admin','admin','2025-07-23 09:26:57','2025-07-23 09:29:52'),(119,21,0,1,'员工档案1','ZjsjEmployee','zjsjEmployee/index',999,'user','zjsjEmployee',_binary '\0',_binary '\0',_binary '\0',NULL,'admin','admin','2025-07-23 09:37:40','2025-07-23 09:37:40');
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `sys_quartz_job`
---
-
-DROP TABLE IF EXISTS `sys_quartz_job`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_quartz_job` (
-  `job_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `bean_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Spring Bean名称',
-  `cron_expression` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'cron 表达式',
-  `is_pause` bit(1) DEFAULT NULL COMMENT '状态：1暂停、0启用',
-  `job_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '任务名称',
-  `method_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '方法名称',
-  `params` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '参数',
-  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '备注',
-  `person_in_charge` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '负责人',
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '报警邮箱',
-  `sub_task` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '子任务ID',
-  `pause_after_failure` bit(1) DEFAULT NULL COMMENT '任务失败后是否暂停',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`job_id`) USING BTREE,
-  KEY `idx_is_pause` (`is_pause`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='定时任务';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_quartz_job`
@@ -845,28 +260,6 @@ INSERT INTO `sys_quartz_job` VALUES (2,'testTask','0/5 * * * * ?',_binary '','�
 UNLOCK TABLES;
 
 --
--- Table structure for table `sys_quartz_log`
---
-
-DROP TABLE IF EXISTS `sys_quartz_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_quartz_log` (
-  `log_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `bean_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Bean名称',
-  `cron_expression` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'cron 表达式',
-  `is_success` bit(1) DEFAULT NULL COMMENT '是否执行成功',
-  `job_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '任务名称',
-  `method_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '方法名称',
-  `params` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '参数',
-  `time` bigint DEFAULT NULL COMMENT '执行耗时',
-  `exception_detail` text COLLATE utf8mb4_general_ci COMMENT '异常详情',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=262 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='定时任务日志';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `sys_quartz_log`
 --
 
@@ -874,29 +267,6 @@ LOCK TABLES `sys_quartz_log` WRITE;
 /*!40000 ALTER TABLE `sys_quartz_log` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_quartz_log` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `sys_role`
---
-
-DROP TABLE IF EXISTS `sys_role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_role` (
-  `role_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
-  `level` int DEFAULT NULL COMMENT '角色级别',
-  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '描述',
-  `data_scope` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '数据权限',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`role_id`) USING BTREE,
-  UNIQUE KEY `uniq_name` (`name`),
-  KEY `idx_level` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='角色表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_role`
@@ -909,22 +279,6 @@ INSERT INTO `sys_role` VALUES (1,'管理员',1,'-','全部',NULL,'admin','2018-1
 UNLOCK TABLES;
 
 --
--- Table structure for table `sys_roles_depts`
---
-
-DROP TABLE IF EXISTS `sys_roles_depts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_roles_depts` (
-  `role_id` bigint NOT NULL COMMENT '角色ID',
-  `dept_id` bigint NOT NULL COMMENT '部门ID',
-  PRIMARY KEY (`role_id`,`dept_id`) USING BTREE,
-  KEY `idx_role_id` (`role_id`),
-  KEY `idx_dept_id` (`dept_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='角色部门关联';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `sys_roles_depts`
 --
 
@@ -932,22 +286,6 @@ LOCK TABLES `sys_roles_depts` WRITE;
 /*!40000 ALTER TABLE `sys_roles_depts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_roles_depts` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `sys_roles_menus`
---
-
-DROP TABLE IF EXISTS `sys_roles_menus`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_roles_menus` (
-  `menu_id` bigint NOT NULL COMMENT '菜单ID',
-  `role_id` bigint NOT NULL COMMENT '角色ID',
-  PRIMARY KEY (`menu_id`,`role_id`) USING BTREE,
-  KEY `idx_menu_id` (`menu_id`),
-  KEY `idx_role_id` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='角色菜单关联';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_roles_menus`
@@ -960,39 +298,6 @@ INSERT INTO `sys_roles_menus` VALUES (1,1),(1,2),(2,1),(2,2),(3,1),(5,1),(6,1),(
 UNLOCK TABLES;
 
 --
--- Table structure for table `sys_user`
---
-
-DROP TABLE IF EXISTS `sys_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_user` (
-  `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `dept_id` bigint DEFAULT NULL COMMENT '部门名称',
-  `username` varchar(180) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '用户名',
-  `nick_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '昵称',
-  `gender` varchar(2) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '性别',
-  `phone` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '手机号码',
-  `email` varchar(180) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '邮箱',
-  `avatar_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '头像地址',
-  `avatar_path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '头像真实路径',
-  `password` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '密码',
-  `is_admin` bit(1) DEFAULT b'0' COMMENT '是否为admin账号',
-  `enabled` bit(1) DEFAULT NULL COMMENT '状态：1启用、0禁用',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `pwd_reset_time` datetime DEFAULT NULL COMMENT '修改密码的时间',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`user_id`) USING BTREE,
-  UNIQUE KEY `uniq_email` (`email`) USING BTREE,
-  UNIQUE KEY `uniq_username` (`username`) USING BTREE,
-  KEY `idx_dept_id` (`dept_id`) USING BTREE,
-  KEY `idx_enabled` (`enabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='系统用户';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `sys_user`
 --
 
@@ -1001,22 +306,6 @@ LOCK TABLES `sys_user` WRITE;
 INSERT INTO `sys_user` VALUES (1,2,'admin','管理员','男','18888888888','201507802@qq.com','avatar-20250122102642222.png','/Users/jie/Documents/work/private/eladmin/~/avatar/avatar-20250122102642222.png','$2a$10$Egp1/gvFlt7zhlXVfEFw4OfWQCGPw0ClmMcc6FjTnvXNRVf9zdMRa',_binary '',_binary '',NULL,'admin','2020-05-03 16:38:31','2018-08-23 09:11:56','2025-01-22 10:26:42'),(2,7,'test','测试','男','19999999999','231@qq.com',NULL,NULL,'$2a$10$4XcyudOYTSz6fue6KFNMHeUQnCX5jbBQypLEnGk1PmekXt5c95JcK',_binary '\0',_binary '','admin','admin',NULL,'2020-05-05 11:15:49','2025-01-21 14:53:04');
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `sys_users_jobs`
---
-
-DROP TABLE IF EXISTS `sys_users_jobs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_users_jobs` (
-  `user_id` bigint NOT NULL COMMENT '用户ID',
-  `job_id` bigint NOT NULL COMMENT '岗位ID',
-  PRIMARY KEY (`user_id`,`job_id`),
-  KEY `idx_user_id` (`user_id`),
-  KEY `idx_job_id` (`job_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='用户与岗位关联表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_users_jobs`
@@ -1029,22 +318,6 @@ INSERT INTO `sys_users_jobs` VALUES (1,11),(2,12);
 UNLOCK TABLES;
 
 --
--- Table structure for table `sys_users_roles`
---
-
-DROP TABLE IF EXISTS `sys_users_roles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sys_users_roles` (
-  `user_id` bigint NOT NULL COMMENT '用户ID',
-  `role_id` bigint NOT NULL COMMENT '角色ID',
-  PRIMARY KEY (`user_id`,`role_id`) USING BTREE,
-  KEY `idx_user_id` (`user_id`),
-  KEY `idx_role_id` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='用户角色关联';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `sys_users_roles`
 --
 
@@ -1053,29 +326,6 @@ LOCK TABLES `sys_users_roles` WRITE;
 INSERT INTO `sys_users_roles` VALUES (1,1),(2,2);
 /*!40000 ALTER TABLE `sys_users_roles` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `tool_alipay_config`
---
-
-DROP TABLE IF EXISTS `tool_alipay_config`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tool_alipay_config` (
-  `config_id` bigint NOT NULL COMMENT 'ID',
-  `app_id` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '应用ID',
-  `charset` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '编码',
-  `format` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '类型 固定格式json',
-  `gateway_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '网关地址',
-  `notify_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '异步回调',
-  `private_key` text COLLATE utf8mb4_general_ci COMMENT '私钥',
-  `public_key` text COLLATE utf8mb4_general_ci COMMENT '公钥',
-  `return_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '回调地址',
-  `sign_type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '签名方式',
-  `sys_service_provider_id` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '商户号',
-  PRIMARY KEY (`config_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='支付宝配置类';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tool_alipay_config`
@@ -1087,24 +337,6 @@ LOCK TABLES `tool_alipay_config` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tool_email_config`
---
-
-DROP TABLE IF EXISTS `tool_email_config`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tool_email_config` (
-  `config_id` bigint NOT NULL COMMENT 'ID',
-  `from_user` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '收件人',
-  `host` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '邮件服务器SMTP地址',
-  `pass` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '密码',
-  `port` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '端口',
-  `user` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '发件者用户名',
-  PRIMARY KEY (`config_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='邮箱配置';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `tool_email_config`
 --
 
@@ -1114,29 +346,6 @@ LOCK TABLES `tool_email_config` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tool_local_storage`
---
-
-DROP TABLE IF EXISTS `tool_local_storage`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tool_local_storage` (
-  `storage_id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `real_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '文件真实的名称',
-  `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '文件名',
-  `suffix` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '后缀',
-  `path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '路径',
-  `type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '类型',
-  `size` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '大小',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`storage_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT COMMENT='本地存储';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `tool_local_storage`
 --
 
@@ -1144,29 +353,6 @@ LOCK TABLES `tool_local_storage` WRITE;
 /*!40000 ALTER TABLE `tool_local_storage` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tool_local_storage` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `tool_s3_storage`
---
-
-DROP TABLE IF EXISTS `tool_s3_storage`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tool_s3_storage` (
-  `storage_id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `file_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件名称',
-  `file_real_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '真实存储的名称',
-  `file_size` varchar(100) COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件大小',
-  `file_mime_type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件MIME 类型',
-  `file_type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件类型',
-  `file_path` tinytext COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件路径',
-  `create_by` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '创建者',
-  `update_by` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '更新者',
-  `create_time` datetime NOT NULL COMMENT '创建日期',
-  `update_time` datetime NOT NULL COMMENT '更新时间',
-  PRIMARY KEY (`storage_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='s3 协议对象存储';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tool_s3_storage`
@@ -1179,37 +365,6 @@ INSERT INTO `tool_s3_storage` VALUES (4,'tx.jpg','2ca1de24d8fa422eae4ede30e97c46
 UNLOCK TABLES;
 
 --
--- Table structure for table `zjsj_asset`
---
-
-DROP TABLE IF EXISTS `zjsj_asset`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_asset` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '资产唯一ID',
-  `asset_no` varchar(50) NOT NULL COMMENT '固定资产编号(RFID/UUID)',
-  `name` varchar(100) NOT NULL COMMENT '资产名称',
-  `category_code` varchar(20) NOT NULL COMMENT '分类编码',
-  `model` varchar(50) DEFAULT NULL COMMENT '规格型号',
-  `unit` varchar(10) DEFAULT NULL COMMENT '计量单位',
-  `original_value` decimal(18,2) DEFAULT NULL COMMENT '资产原值',
-  `status` enum('INSTOCK','ISSUED','BORROWED','LEASE','MAINTENANCE','DISPOSED') NOT NULL,
-  `is_turnover` tinyint(1) DEFAULT '0' COMMENT '是否周转物资',
-  `storage_area_id` bigint DEFAULT NULL COMMENT '存放场地ID',
-  `warehouse_id` bigint DEFAULT NULL COMMENT '仓库ID',
-  `storage_location` varchar(50) DEFAULT NULL COMMENT '货位号',
-  `purchase_date` date DEFAULT NULL COMMENT '购置日期',
-  `estimated_life` int DEFAULT NULL COMMENT '预计使用年限',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `asset_no` (`asset_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产主表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `zjsj_asset`
 --
 
@@ -1218,26 +373,6 @@ LOCK TABLES `zjsj_asset` WRITE;
 INSERT INTO `zjsj_asset` VALUES (1,'ASSET-2025-0001','塔式起重机QTZ68','EQP-001','QTZ60','台',415571.00,'ISSUED',1,9,NULL,NULL,'2024-02-01',12,'system','system','2025-04-12 00:00:00','2025-01-22 00:00:00'),(2,'ASSET-2025-0002','塔式起重机QTZ95','EQP-001','QTZ64','台',549115.00,'BORROWED',1,8,NULL,NULL,'2022-10-01',9,'system','system','2025-01-01 00:00:00','2025-02-11 00:00:00'),(3,'ASSET-2025-0003','塔式起重机QTZ66','EQP-001','QTZ63','台',591320.00,'LEASE',1,7,NULL,NULL,'2024-12-01',10,'system','system','2025-01-04 00:00:00','2025-05-29 00:00:00'),(4,'ASSET-2025-0004','塔式起重机QTZ61','EQP-001','QTZ90','台',509490.00,'MAINTENANCE',1,4,NULL,NULL,'2022-07-01',11,'system','system','2025-05-21 00:00:00','2025-06-14 00:00:00'),(5,'ASSET-2025-0005','塔式起重机QTZ68','EQP-001','QTZ74','台',336727.00,'DISPOSED',1,6,NULL,NULL,'2023-12-01',8,'system','system','2025-05-20 00:00:00','2025-03-08 00:00:00'),(6,'ASSET-2025-0006','塔式起重机QTZ80','EQP-001','QTZ77','台',499247.00,'INSTOCK',1,3,NULL,NULL,'2024-12-01',8,'system','system','2025-06-03 00:00:00','2025-05-02 00:00:00'),(7,'ASSET-2025-0007','塔式起重机QTZ92','EQP-001','QTZ61','台',536018.00,'ISSUED',1,8,NULL,NULL,'2023-03-01',11,'system','system','2025-05-16 00:00:00','2025-04-17 00:00:00'),(8,'ASSET-2025-0008','塔式起重机QTZ88','EQP-001','QTZ90','台',519218.00,'BORROWED',1,5,NULL,NULL,'2023-08-01',10,'system','system','2025-04-19 00:00:00','2025-05-23 00:00:00'),(9,'ASSET-2025-0009','塔式起重机QTZ65','EQP-001','QTZ74','台',395140.00,'LEASE',1,6,NULL,NULL,'2022-12-01',12,'system','system','2025-05-20 00:00:00','2025-06-14 00:00:00'),(10,'ASSET-2025-0010','塔式起重机QTZ70','EQP-001','QTZ81','台',571122.00,'MAINTENANCE',1,9,NULL,NULL,'2022-06-01',10,'system','system','2025-02-17 00:00:00','2025-04-19 00:00:00'),(11,'ASSET-2025-0011','塔式起重机QTZ69','EQP-001','QTZ74','台',338501.00,'DISPOSED',1,6,NULL,NULL,'2024-02-01',12,'system','system','2025-05-04 00:00:00','2025-05-02 00:00:00'),(12,'ASSET-2025-0012','塔式起重机QTZ72','EQP-001','QTZ79','台',455306.00,'INSTOCK',1,3,NULL,NULL,'2024-09-01',9,'system','system','2025-06-04 00:00:00','2025-04-06 00:00:00'),(13,'ASSET-2025-0013','塔式起重机QTZ63','EQP-001','QTZ91','台',518045.00,'ISSUED',1,4,NULL,NULL,'2024-09-01',12,'system','system','2025-06-21 00:00:00','2025-01-27 00:00:00'),(14,'ASSET-2025-0014','塔式起重机QTZ95','EQP-001','QTZ98','台',336469.00,'BORROWED',1,8,NULL,NULL,'2023-11-01',11,'system','system','2025-05-09 00:00:00','2025-02-05 00:00:00'),(15,'ASSET-2025-0015','塔式起重机QTZ94','EQP-001','QTZ87','台',547623.00,'LEASE',1,3,NULL,NULL,'2022-02-01',11,'system','system','2025-03-02 00:00:00','2025-05-07 00:00:00'),(16,'ASSET-2025-0016','塔式起重机QTZ79','EQP-001','QTZ75','台',418701.00,'MAINTENANCE',1,8,NULL,NULL,'2024-11-01',11,'system','system','2025-03-31 00:00:00','2025-02-22 00:00:00'),(17,'ASSET-2025-0017','塔式起重机QTZ98','EQP-001','QTZ97','台',543908.00,'DISPOSED',1,4,NULL,NULL,'2022-09-01',8,'system','system','2025-04-04 00:00:00','2025-01-15 00:00:00'),(18,'ASSET-2025-0018','塔式起重机QTZ93','EQP-001','QTZ99','台',428107.00,'INSTOCK',1,4,NULL,NULL,'2023-08-01',12,'system','system','2025-03-08 00:00:00','2025-06-20 00:00:00'),(19,'ASSET-2025-0019','塔式起重机QTZ85','EQP-001','QTZ73','台',530445.00,'ISSUED',1,8,NULL,NULL,'2022-06-01',12,'system','system','2025-04-25 00:00:00','2025-04-24 00:00:00'),(20,'ASSET-2025-0020','塔式起重机QTZ69','EQP-001','QTZ73','台',592511.00,'BORROWED',1,8,NULL,NULL,'2024-03-01',12,'system','system','2025-06-13 00:00:00','2025-05-01 00:00:00'),(21,'ASSET-2025-0021','塔式起重机QTZ84','EQP-001','QTZ61','台',405120.00,'LEASE',1,7,NULL,NULL,'2024-07-01',12,'system','system','2025-03-19 00:00:00','2025-01-29 00:00:00'),(22,'ASSET-2025-0022','塔式起重机QTZ79','EQP-001','QTZ60','台',481532.00,'MAINTENANCE',1,9,NULL,NULL,'2025-01-01',8,'system','system','2025-04-19 00:00:00','2025-04-29 00:00:00'),(23,'ASSET-2025-0023','塔式起重机QTZ78','EQP-001','QTZ74','台',423719.00,'DISPOSED',1,9,NULL,NULL,'2023-02-01',9,'system','system','2025-03-26 00:00:00','2025-04-02 00:00:00'),(24,'ASSET-2025-0024','塔式起重机QTZ65','EQP-001','QTZ65','台',401075.00,'INSTOCK',1,4,NULL,NULL,'2024-07-01',9,'system','system','2025-04-19 00:00:00','2025-02-26 00:00:00'),(25,'ASSET-2025-0025','塔式起重机QTZ89','EQP-001','QTZ92','台',538793.00,'ISSUED',1,6,NULL,NULL,'2023-12-01',9,'system','system','2025-01-21 00:00:00','2025-05-29 00:00:00'),(26,'ASSET-2025-0026','塔式起重机QTZ90','EQP-001','QTZ74','台',440986.00,'BORROWED',1,5,NULL,NULL,'2024-12-01',9,'system','system','2025-05-18 00:00:00','2025-04-29 00:00:00'),(27,'ASSET-2025-0027','塔式起重机QTZ99','EQP-001','QTZ60','台',337303.00,'LEASE',1,6,NULL,NULL,'2023-12-01',9,'system','system','2025-06-24 00:00:00','2025-02-05 00:00:00'),(28,'ASSET-2025-0028','塔式起重机QTZ62','EQP-001','QTZ90','台',479745.00,'MAINTENANCE',1,7,NULL,NULL,'2022-10-01',11,'system','system','2025-06-20 00:00:00','2025-05-27 00:00:00'),(29,'ASSET-2025-0029','塔式起重机QTZ69','EQP-001','QTZ87','台',541764.00,'DISPOSED',1,9,NULL,NULL,'2024-04-01',10,'system','system','2025-04-16 00:00:00','2025-04-06 00:00:00'),(30,'ASSET-2025-0030','塔式起重机QTZ95','EQP-001','QTZ92','台',433138.00,'INSTOCK',1,8,NULL,NULL,'2023-07-01',9,'system','system','2025-04-16 00:00:00','2025-02-18 00:00:00'),(31,'ASSET-2025-0031','混凝土泵车SY5585','EQP-002','SY5122THB','台',1228415.00,'ISSUED',1,9,NULL,NULL,'2025-01-01',9,'system','system','2025-03-27 00:00:00','2025-03-25 00:00:00'),(32,'ASSET-2025-0032','混凝土泵车SY5890','EQP-002','SY5067THB','台',1133890.00,'BORROWED',1,3,NULL,NULL,'2023-01-01',12,'system','system','2025-05-20 00:00:00','2025-01-01 00:00:00'),(33,'ASSET-2025-0033','混凝土泵车SY5676','EQP-002','SY5381THB','台',1237765.00,'LEASE',1,4,NULL,NULL,'2023-06-01',8,'system','system','2025-03-31 00:00:00','2025-03-15 00:00:00'),(34,'ASSET-2025-0034','混凝土泵车SY5558','EQP-002','SY5560THB','台',862215.00,'MAINTENANCE',1,9,NULL,NULL,'2024-01-01',12,'system','system','2025-02-21 00:00:00','2025-06-04 00:00:00'),(35,'ASSET-2025-0035','混凝土泵车SY5437','EQP-002','SY5605THB','台',1158545.00,'DISPOSED',1,8,NULL,NULL,'2023-01-01',8,'system','system','2025-04-24 00:00:00','2025-05-13 00:00:00'),(36,'ASSET-2025-0036','混凝土泵车SY5794','EQP-002','SY5760THB','台',1010078.00,'INSTOCK',1,8,NULL,NULL,'2022-08-01',11,'system','system','2025-06-27 00:00:00','2025-06-01 00:00:00'),(37,'ASSET-2025-0037','混凝土泵车SY5260','EQP-002','SY5769THB','台',834635.00,'ISSUED',1,3,NULL,NULL,'2022-02-01',11,'system','system','2025-06-15 00:00:00','2025-02-19 00:00:00'),(38,'ASSET-2025-0038','混凝土泵车SY5635','EQP-002','SY5344THB','台',1209063.00,'BORROWED',1,3,NULL,NULL,'2022-08-01',12,'system','system','2025-03-07 00:00:00','2025-06-14 00:00:00'),(39,'ASSET-2025-0039','混凝土泵车SY5473','EQP-002','SY5628THB','台',1160935.00,'LEASE',1,8,NULL,NULL,'2023-09-01',8,'system','system','2025-01-16 00:00:00','2025-01-29 00:00:00'),(40,'ASSET-2025-0040','混凝土泵车SY5549','EQP-002','SY5263THB','台',1135161.00,'MAINTENANCE',1,6,NULL,NULL,'2022-09-01',9,'system','system','2025-01-08 00:00:00','2025-03-03 00:00:00'),(41,'ASSET-2025-0041','混凝土泵车SY5603','EQP-002','SY5983THB','台',854109.00,'DISPOSED',1,7,NULL,NULL,'2023-03-01',9,'system','system','2025-06-21 00:00:00','2025-04-30 00:00:00'),(42,'ASSET-2025-0042','混凝土泵车SY5463','EQP-002','SY5321THB','台',910065.00,'INSTOCK',1,3,NULL,NULL,'2025-01-01',11,'system','system','2025-02-21 00:00:00','2025-03-20 00:00:00'),(43,'ASSET-2025-0043','混凝土泵车SY5324','EQP-002','SY5310THB','台',1090464.00,'ISSUED',1,9,NULL,NULL,'2024-09-01',11,'system','system','2025-01-04 00:00:00','2025-01-13 00:00:00'),(44,'ASSET-2025-0044','混凝土泵车SY5285','EQP-002','SY5223THB','台',930876.00,'BORROWED',1,7,NULL,NULL,'2023-11-01',8,'system','system','2025-02-22 00:00:00','2025-01-27 00:00:00'),(45,'ASSET-2025-0045','混凝土泵车SY5877','EQP-002','SY5938THB','台',830152.00,'LEASE',1,6,NULL,NULL,'2024-04-01',11,'system','system','2025-02-13 00:00:00','2025-05-28 00:00:00'),(46,'ASSET-2025-0046','混凝土泵车SY5361','EQP-002','SY5351THB','台',1137522.00,'MAINTENANCE',1,5,NULL,NULL,'2023-05-01',12,'system','system','2025-05-26 00:00:00','2025-02-28 00:00:00'),(47,'ASSET-2025-0047','混凝土泵车SY5188','EQP-002','SY5977THB','台',960470.00,'DISPOSED',1,7,NULL,NULL,'2023-11-01',12,'system','system','2025-05-01 00:00:00','2025-03-18 00:00:00'),(48,'ASSET-2025-0048','混凝土泵车SY5123','EQP-002','SY5341THB','台',967725.00,'INSTOCK',1,7,NULL,NULL,'2024-04-01',9,'system','system','2025-06-12 00:00:00','2025-04-01 00:00:00'),(49,'ASSET-2025-0049','混凝土泵车SY5815','EQP-002','SY5562THB','台',983926.00,'ISSUED',1,4,NULL,NULL,'2023-02-01',12,'system','system','2025-01-14 00:00:00','2025-06-22 00:00:00'),(50,'ASSET-2025-0050','混凝土泵车SY5570','EQP-002','SY5973THB','台',877862.00,'BORROWED',1,9,NULL,NULL,'2022-08-01',10,'system','system','2025-02-21 00:00:00','2025-05-19 00:00:00'),(51,'ASSET-2025-0051','混凝土泵车SY5987','EQP-002','SY5630THB','台',894777.00,'LEASE',1,3,NULL,NULL,'2022-12-01',10,'system','system','2025-06-15 00:00:00','2025-03-06 00:00:00'),(52,'ASSET-2025-0052','混凝土泵车SY5039','EQP-002','SY5115THB','台',1030244.00,'MAINTENANCE',1,9,NULL,NULL,'2023-11-01',8,'system','system','2025-03-08 00:00:00','2025-04-02 00:00:00'),(53,'ASSET-2025-0053','混凝土泵车SY5432','EQP-002','SY5641THB','台',1254886.00,'DISPOSED',1,7,NULL,NULL,'2023-11-01',8,'system','system','2025-02-14 00:00:00','2025-06-27 00:00:00'),(54,'ASSET-2025-0054','混凝土泵车SY5187','EQP-002','SY5978THB','台',965517.00,'INSTOCK',1,8,NULL,NULL,'2023-04-01',12,'system','system','2025-03-25 00:00:00','2025-05-19 00:00:00'),(55,'ASSET-2025-0055','混凝土泵车SY5442','EQP-002','SY5905THB','台',900984.00,'ISSUED',1,5,NULL,NULL,'2022-07-01',10,'system','system','2025-03-29 00:00:00','2025-02-05 00:00:00'),(56,'ASSET-2025-0056','混凝土泵车SY5533','EQP-002','SY5069THB','台',1173293.00,'BORROWED',1,6,NULL,NULL,'2023-12-01',9,'system','system','2025-04-22 00:00:00','2025-01-04 00:00:00'),(57,'ASSET-2025-0057','混凝土泵车SY5253','EQP-002','SY5203THB','台',928997.00,'LEASE',1,7,NULL,NULL,'2023-03-01',8,'system','system','2025-03-30 00:00:00','2025-02-13 00:00:00'),(58,'ASSET-2025-0058','混凝土泵车SY5746','EQP-002','SY5000THB','台',1180464.00,'MAINTENANCE',1,8,NULL,NULL,'2022-11-01',9,'system','system','2025-01-31 00:00:00','2025-01-04 00:00:00'),(59,'ASSET-2025-0059','混凝土泵车SY5578','EQP-002','SY5840THB','台',1032620.00,'DISPOSED',1,8,NULL,NULL,'2023-03-01',11,'system','system','2025-06-04 00:00:00','2025-01-06 00:00:00'),(60,'ASSET-2025-0060','混凝土泵车SY5583','EQP-002','SY5822THB','台',982655.00,'INSTOCK',1,5,NULL,NULL,'2023-01-01',9,'system','system','2025-06-05 00:00:00','2025-01-26 00:00:00'),(61,'ASSET-2025-0061','全站仪TS11','EQP-003','TS12','套',93125.00,'ISSUED',0,6,NULL,NULL,'2024-08-01',5,'system','system','2025-01-13 00:00:00','2025-01-07 00:00:00'),(62,'ASSET-2025-0062','全站仪TS19','EQP-003','TS17','套',97900.00,'BORROWED',0,6,NULL,NULL,'2023-11-01',6,'system','system','2025-06-25 00:00:00','2025-06-23 00:00:00'),(63,'ASSET-2025-0063','全站仪TS18','EQP-003','TS15','套',59834.00,'LEASE',0,4,NULL,NULL,'2022-12-01',7,'system','system','2025-04-25 00:00:00','2025-06-17 00:00:00'),(64,'ASSET-2025-0064','全站仪TS17','EQP-003','TS18','套',60488.00,'MAINTENANCE',0,5,NULL,NULL,'2023-12-01',7,'system','system','2025-03-21 00:00:00','2025-01-08 00:00:00'),(65,'ASSET-2025-0065','全站仪TS18','EQP-003','TS13','套',95141.00,'DISPOSED',0,7,NULL,NULL,'2024-08-01',5,'system','system','2025-01-07 00:00:00','2025-06-06 00:00:00'),(66,'ASSET-2025-0066','全站仪TS12','EQP-003','TS15','套',52452.00,'INSTOCK',0,7,NULL,NULL,'2022-07-01',6,'system','system','2025-05-08 00:00:00','2025-02-04 00:00:00'),(67,'ASSET-2025-0067','全站仪TS18','EQP-003','TS15','套',70586.00,'ISSUED',0,5,NULL,NULL,'2024-01-01',7,'system','system','2025-05-15 00:00:00','2025-03-29 00:00:00'),(68,'ASSET-2025-0068','全站仪TS11','EQP-003','TS14','套',82372.00,'BORROWED',0,9,NULL,NULL,'2022-12-01',7,'system','system','2025-03-11 00:00:00','2025-05-31 00:00:00'),(69,'ASSET-2025-0069','全站仪TS10','EQP-003','TS16','套',66398.00,'LEASE',0,6,NULL,NULL,'2022-07-01',6,'system','system','2025-03-09 00:00:00','2025-01-18 00:00:00'),(70,'ASSET-2025-0070','全站仪TS13','EQP-003','TS15','套',76370.00,'MAINTENANCE',0,3,NULL,NULL,'2022-10-01',6,'system','system','2025-04-28 00:00:00','2025-04-02 00:00:00'),(71,'ASSET-2025-0071','电动扳手DB-21','TOOL-001','DB-18','把',1138.00,'DISPOSED',0,5,NULL,NULL,'2024-09-01',4,'system','system','2025-02-12 00:00:00','2025-02-10 00:00:00'),(72,'ASSET-2025-0072','电动扳手DB-18','TOOL-001','DB-17','把',1400.00,'INSTOCK',0,9,NULL,NULL,'2022-11-01',3,'system','system','2025-05-30 00:00:00','2025-01-18 00:00:00'),(73,'ASSET-2025-0073','电动扳手DB-29','TOOL-001','DB-23','把',1147.00,'ISSUED',0,8,NULL,NULL,'2022-12-01',3,'system','system','2025-01-24 00:00:00','2025-06-15 00:00:00'),(74,'ASSET-2025-0074','电动扳手DB-14','TOOL-001','DB-16','把',1697.00,'BORROWED',0,6,NULL,NULL,'2024-09-01',6,'system','system','2025-02-02 00:00:00','2025-02-01 00:00:00'),(75,'ASSET-2025-0075','电动扳手DB-16','TOOL-001','DB-12','把',1441.00,'LEASE',0,8,NULL,NULL,'2024-05-01',5,'system','system','2025-03-28 00:00:00','2025-04-04 00:00:00'),(76,'ASSET-2025-0076','电动扳手DB-13','TOOL-001','DB-14','把',1419.00,'MAINTENANCE',0,6,NULL,NULL,'2023-12-01',5,'system','system','2025-03-30 00:00:00','2025-06-12 00:00:00'),(77,'ASSET-2025-0077','电动扳手DB-10','TOOL-001','DB-18','把',874.00,'DISPOSED',0,3,NULL,NULL,'2024-07-01',5,'system','system','2025-04-07 00:00:00','2025-06-01 00:00:00'),(78,'ASSET-2025-0078','电动扳手DB-22','TOOL-001','DB-21','把',1759.00,'INSTOCK',0,3,NULL,NULL,'2023-02-01',6,'system','system','2025-06-03 00:00:00','2025-03-09 00:00:00'),(79,'ASSET-2025-0079','电动扳手DB-16','TOOL-001','DB-19','把',1125.00,'ISSUED',0,4,NULL,NULL,'2024-02-01',6,'system','system','2025-03-07 00:00:00','2025-02-08 00:00:00'),(80,'ASSET-2025-0080','电动扳手DB-29','TOOL-001','DB-13','把',864.00,'BORROWED',0,8,NULL,NULL,'2023-07-01',4,'system','system','2025-03-02 00:00:00','2025-04-09 00:00:00'),(81,'ASSET-2025-0081','电动扳手DB-24','TOOL-001','DB-29','把',1422.00,'LEASE',0,4,NULL,NULL,'2023-12-01',3,'system','system','2025-02-23 00:00:00','2025-02-14 00:00:00'),(82,'ASSET-2025-0082','电动扳手DB-17','TOOL-001','DB-10','把',841.00,'MAINTENANCE',0,4,NULL,NULL,'2023-04-01',5,'system','system','2025-02-01 00:00:00','2025-01-15 00:00:00'),(83,'ASSET-2025-0083','电动扳手DB-27','TOOL-001','DB-13','把',1048.00,'DISPOSED',0,7,NULL,NULL,'2022-10-01',5,'system','system','2025-01-15 00:00:00','2025-03-13 00:00:00'),(84,'ASSET-2025-0084','电动扳手DB-25','TOOL-001','DB-21','把',1386.00,'INSTOCK',0,4,NULL,NULL,'2024-01-01',3,'system','system','2025-03-31 00:00:00','2025-01-27 00:00:00'),(85,'ASSET-2025-0085','电动扳手DB-14','TOOL-001','DB-25','把',908.00,'ISSUED',0,4,NULL,NULL,'2022-05-01',5,'system','system','2025-01-07 00:00:00','2025-06-19 00:00:00'),(86,'ASSET-2025-0086','安全爬梯PT-3M','SAFE-001','PT-1M','套',5699.00,'BORROWED',0,8,NULL,NULL,'2022-04-01',3,'system','system','2025-02-03 00:00:00','2025-03-02 00:00:00'),(87,'ASSET-2025-0087','安全爬梯PT-1M','SAFE-001','PT-3M','套',11086.00,'LEASE',0,4,NULL,NULL,'2023-08-01',5,'system','system','2025-04-16 00:00:00','2025-01-22 00:00:00'),(88,'ASSET-2025-0088','安全爬梯PT-5M','SAFE-001','PT-5M','套',13360.00,'MAINTENANCE',0,6,NULL,NULL,'2024-04-01',5,'system','system','2025-02-15 00:00:00','2025-03-23 00:00:00'),(89,'ASSET-2025-0089','安全爬梯PT-3M','SAFE-001','PT-1M','套',8447.00,'DISPOSED',0,4,NULL,NULL,'2025-01-01',4,'system','system','2025-06-17 00:00:00','2025-03-30 00:00:00'),(90,'ASSET-2025-0090','安全爬梯PT-4M','SAFE-001','PT-5M','套',6106.00,'INSTOCK',0,3,NULL,NULL,'2024-07-01',5,'system','system','2025-04-19 00:00:00','2025-01-19 00:00:00'),(91,'ASSET-2025-0091','安全爬梯PT-4M','SAFE-001','PT-2M','套',7169.00,'ISSUED',0,4,NULL,NULL,'2023-01-01',5,'system','system','2025-05-12 00:00:00','2025-01-04 00:00:00'),(92,'ASSET-2025-0092','安全爬梯PT-5M','SAFE-001','PT-3M','套',10749.00,'BORROWED',0,6,NULL,NULL,'2022-09-01',4,'system','system','2025-06-13 00:00:00','2025-01-29 00:00:00'),(93,'ASSET-2025-0093','安全爬梯PT-1M','SAFE-001','PT-5M','套',5828.00,'LEASE',0,8,NULL,NULL,'2022-02-01',4,'system','system','2025-01-10 00:00:00','2025-01-10 00:00:00'),(94,'ASSET-2025-0094','安全爬梯PT-1M','SAFE-001','PT-2M','套',8990.00,'MAINTENANCE',0,9,NULL,NULL,'2023-01-01',5,'system','system','2025-04-16 00:00:00','2025-03-03 00:00:00'),(95,'ASSET-2025-0095','安全爬梯PT-5M','SAFE-001','PT-4M','套',9740.00,'DISPOSED',0,5,NULL,NULL,'2023-04-01',5,'system','system','2025-06-21 00:00:00','2025-04-05 00:00:00'),(96,'ASSET-2025-0096','安全爬梯PT-4M','SAFE-001','PT-2M','套',7760.00,'INSTOCK',0,5,NULL,NULL,'2024-06-01',6,'system','system','2025-04-11 00:00:00','2025-02-18 00:00:00'),(97,'ASSET-2025-0097','安全爬梯PT-4M','SAFE-001','PT-3M','套',11529.00,'ISSUED',0,7,NULL,NULL,'2023-11-01',3,'system','system','2025-06-04 00:00:00','2025-02-14 00:00:00'),(98,'ASSET-2025-0098','安全爬梯PT-4M','SAFE-001','PT-3M','套',14732.00,'BORROWED',0,3,NULL,NULL,'2023-09-01',3,'system','system','2025-02-04 00:00:00','2025-04-17 00:00:00'),(99,'ASSET-2025-0099','安全爬梯PT-2M','SAFE-001','PT-1M','套',11866.00,'LEASE',0,9,NULL,NULL,'2023-06-01',6,'system','system','2025-01-10 00:00:00','2025-03-23 00:00:00'),(100,'ASSET-2025-0100','安全爬梯PT-1M','SAFE-001','PT-2M','套',13877.00,'MAINTENANCE',0,7,NULL,NULL,'2022-10-01',5,'system','system','2025-03-09 00:00:00','2025-05-04 00:00:00');
 /*!40000 ALTER TABLE `zjsj_asset` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `zjsj_asset_category`
---
-
-DROP TABLE IF EXISTS `zjsj_asset_category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_asset_category` (
-  `category_code` varchar(20) NOT NULL COMMENT '分类编码',
-  `category_name` varchar(50) NOT NULL COMMENT '分类名称',
-  `parent_code` varchar(20) DEFAULT NULL COMMENT '上级分类编码',
-  `is_equipment` tinyint(1) DEFAULT '0' COMMENT '是否设备类',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`category_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产品种型号表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `zjsj_asset_category`
@@ -1250,30 +385,6 @@ INSERT INTO `zjsj_asset_category` VALUES ('EQP-001','大型施工设备',NULL,1,
 UNLOCK TABLES;
 
 --
--- Table structure for table `zjsj_asset_inout`
---
-
-DROP TABLE IF EXISTS `zjsj_asset_inout`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_asset_inout` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `asset_id` bigint NOT NULL COMMENT '资产ID',
-  `type` enum('IN','OUT','MOVE') NOT NULL,
-  `ref_order_id` bigint DEFAULT NULL COMMENT '关联单号',
-  `warehouse_id` bigint DEFAULT NULL COMMENT '仓库ID',
-  `before_location` varchar(50) DEFAULT NULL COMMENT '移库前货位',
-  `after_location` varchar(50) DEFAULT NULL COMMENT '移库后货位',
-  `operator_id` bigint NOT NULL COMMENT '操作人',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产出入库表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `zjsj_asset_inout`
 --
 
@@ -1281,28 +392,6 @@ LOCK TABLES `zjsj_asset_inout` WRITE;
 /*!40000 ALTER TABLE `zjsj_asset_inout` DISABLE KEYS */;
 /*!40000 ALTER TABLE `zjsj_asset_inout` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `zjsj_drone_inspection`
---
-
-DROP TABLE IF EXISTS `zjsj_drone_inspection`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_drone_inspection` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `drone_id` varchar(30) NOT NULL COMMENT '无人机编号',
-  `storage_area_id` bigint NOT NULL COMMENT '巡检场地ID',
-  `path_data` varchar(1000) DEFAULT NULL COMMENT '巡检路径坐标集',
-  `result_summary` text COMMENT '异常汇总',
-  `inspection_time` datetime NOT NULL,
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='无人机巡检表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `zjsj_drone_inspection`
@@ -1315,28 +404,6 @@ INSERT INTO `zjsj_drone_inspection` VALUES (1,'DRONE-GZ-01',1,'{\"path\": [[113.
 UNLOCK TABLES;
 
 --
--- Table structure for table `zjsj_electronic_tag`
---
-
-DROP TABLE IF EXISTS `zjsj_electronic_tag`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_electronic_tag` (
-  `id` varchar(50) NOT NULL COMMENT '标签物理ID',
-  `type` enum('RFID','GPS') NOT NULL,
-  `bind_asset_id` bigint DEFAULT NULL COMMENT '绑定资产ID',
-  `bind_time` datetime DEFAULT NULL COMMENT '绑定时间',
-  `health_status` enum('NORMAL','LOWPOWER','ERROR') DEFAULT NULL,
-  `last_check_time` datetime DEFAULT NULL COMMENT '最后检测时间',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='电子标签表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `zjsj_electronic_tag`
 --
 
@@ -1344,29 +411,6 @@ LOCK TABLES `zjsj_electronic_tag` WRITE;
 /*!40000 ALTER TABLE `zjsj_electronic_tag` DISABLE KEYS */;
 /*!40000 ALTER TABLE `zjsj_electronic_tag` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `zjsj_employee`
---
-
-DROP TABLE IF EXISTS `zjsj_employee`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_employee` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `emp_no` varchar(20) NOT NULL COMMENT '工号',
-  `name` varchar(30) NOT NULL,
-  `org_code` varchar(20) NOT NULL COMMENT '所属机构',
-  `position` varchar(30) DEFAULT NULL COMMENT '职位',
-  `contact` varchar(20) DEFAULT NULL COMMENT '联系方式',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `emp_no` (`emp_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='员工档案表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `zjsj_employee`
@@ -1378,30 +422,6 @@ LOCK TABLES `zjsj_employee` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `zjsj_lease_order`
---
-
-DROP TABLE IF EXISTS `zjsj_lease_order`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_lease_order` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `order_no` varchar(30) NOT NULL COMMENT '租赁单号',
-  `project_id` bigint NOT NULL COMMENT '工程项目ID',
-  `start_date` date NOT NULL COMMENT '租赁开始日',
-  `end_date` date NOT NULL COMMENT '租赁结束日',
-  `total_fee` decimal(18,2) DEFAULT NULL COMMENT '租赁总费用',
-  `status` enum('APPLYING','EXECUTE','FINISH','SETTLE') DEFAULT NULL,
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `order_no` (`order_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='租赁订单表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `zjsj_lease_order`
 --
 
@@ -1409,29 +429,6 @@ LOCK TABLES `zjsj_lease_order` WRITE;
 /*!40000 ALTER TABLE `zjsj_lease_order` DISABLE KEYS */;
 /*!40000 ALTER TABLE `zjsj_lease_order` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `zjsj_maintenance_record`
---
-
-DROP TABLE IF EXISTS `zjsj_maintenance_record`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_maintenance_record` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `asset_id` bigint NOT NULL COMMENT '资产ID',
-  `type` enum('MAINTAIN','RAPAIR') NOT NULL,
-  `cost` decimal(18,2) DEFAULT NULL COMMENT '维护费用',
-  `content` text COMMENT '维护内容',
-  `result` enum('DONE','FOLLOW','SCRAP') DEFAULT NULL COMMENT '处理结果',
-  `maintenance_date` date NOT NULL,
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产维护表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `zjsj_maintenance_record`
@@ -1444,26 +441,6 @@ INSERT INTO `zjsj_maintenance_record` VALUES (1,2,'RAPAIR',12500.00,'液压系�
 UNLOCK TABLES;
 
 --
--- Table structure for table `zjsj_organization`
---
-
-DROP TABLE IF EXISTS `zjsj_organization`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_organization` (
-  `org_code` varchar(20) NOT NULL COMMENT '机构编码',
-  `org_name` varchar(50) NOT NULL COMMENT '机构名称',
-  `org_type` enum('HEADER','BRANCH','PROJECT') NOT NULL,
-  `parent_org_code` varchar(20) DEFAULT NULL COMMENT '上级机构编码',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`org_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='企业组织机构表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `zjsj_organization`
 --
 
@@ -1471,31 +448,6 @@ LOCK TABLES `zjsj_organization` WRITE;
 /*!40000 ALTER TABLE `zjsj_organization` DISABLE KEYS */;
 /*!40000 ALTER TABLE `zjsj_organization` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `zjsj_project`
---
-
-DROP TABLE IF EXISTS `zjsj_project`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_project` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `project_no` varchar(30) NOT NULL COMMENT '项目编号',
-  `name` varchar(100) NOT NULL COMMENT '项目名称',
-  `type` enum('HOUSE','CITY','TRANS') DEFAULT NULL COMMENT '项目类型',
-  `scale` varchar(200) DEFAULT NULL COMMENT '项目规模描述',
-  `location` varchar(100) DEFAULT NULL COMMENT '地理位置(GIS坐标)',
-  `responsible_org` varchar(50) DEFAULT NULL COMMENT '责任主体单位',
-  `status` enum('READY','GOING','DONE') DEFAULT NULL,
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `project_no` (`project_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='工程项目表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `zjsj_project`
@@ -1508,28 +460,6 @@ INSERT INTO `zjsj_project` VALUES (1,'PRJ-GZ-2025-001','广州金融中心','HOU
 UNLOCK TABLES;
 
 --
--- Table structure for table `zjsj_storage_area`
---
-
-DROP TABLE IF EXISTS `zjsj_storage_area`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_storage_area` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL COMMENT '场地名称',
-  `type` enum('CENTRAL','SEPARATE','PROJECT') NOT NULL,
-  `location` varchar(100) DEFAULT NULL COMMENT '地理坐标',
-  `capacity` varchar(100) DEFAULT NULL COMMENT '场地容量描述',
-  `manager_emp_id` bigint DEFAULT NULL COMMENT '负责人ID',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='资产存放场地表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `zjsj_storage_area`
 --
 
@@ -1538,29 +468,6 @@ LOCK TABLES `zjsj_storage_area` WRITE;
 INSERT INTO `zjsj_storage_area` VALUES (1,'广州中心总仓','CENTRAL','113.295 23.136','10,000平方米',1001,'admin','admin','2025-01-10 08:00:00','2025-06-01 14:20:00'),(2,'白云分仓','SEPARATE','113.279 23.226','5,000平方米',1002,'admin','admin','2025-01-12 09:15:00','2025-05-15 11:30:00'),(3,'金融中心项目现场','PROJECT','113.327 23.116','工地北侧',1003,'admin','admin','2025-02-15 10:30:00','2025-07-10 16:40:00'),(4,'南沙港项目现场','PROJECT','113.602 22.795','码头A区',1004,'admin','admin','2025-03-20 13:20:00','2025-06-25 10:50:00'),(5,'珠江新城项目现场','PROJECT','113.321 23.122','隧道东入口',1005,'admin','admin','2025-01-25 14:45:00','2025-07-05 15:20:00'),(6,'机场项目现场','PROJECT','113.309 23.392','T3航站楼西侧',1006,'admin','admin','2025-03-10 11:10:00','2025-06-20 09:30:00'),(7,'番禺分仓','SEPARATE','113.385 22.938','3,000平方米',1007,'admin','admin','2025-02-05 15:00:00','2025-05-28 14:15:00'),(8,'黄埔分仓','SEPARATE','113.466 23.102','4,000平方米',1008,'admin','admin','2025-01-18 10:20:00','2025-06-10 11:40:00'),(9,'广佛项目现场','PROJECT','113.115 23.025','陈村段工地',1009,'admin','admin','2025-03-01 09:45:00','2025-07-08 10:25:00'),(10,'南沙分仓','SEPARATE','113.537 22.801','6,000平方米',1010,'admin','admin','2025-04-01 14:00:00','2025-06-18 16:30:00');
 /*!40000 ALTER TABLE `zjsj_storage_area` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `zjsj_turnover_profit`
---
-
-DROP TABLE IF EXISTS `zjsj_turnover_profit`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_turnover_profit` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `asset_id` bigint NOT NULL COMMENT '周转物资ID',
-  `year` year NOT NULL COMMENT '统计年份',
-  `quarter` tinyint DEFAULT NULL COMMENT '季度(1-4)',
-  `lease_days` int DEFAULT NULL COMMENT '租赁天数',
-  `income` decimal(18,2) DEFAULT NULL COMMENT '产生收益',
-  `utilization_rate` decimal(5,2) DEFAULT NULL COMMENT '使用率(%)',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='周转物资收益表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `zjsj_turnover_profit`
@@ -1573,28 +480,6 @@ INSERT INTO `zjsj_turnover_profit` VALUES (1,1,2025,2,85,126000.00,92.50,'financ
 UNLOCK TABLES;
 
 --
--- Table structure for table `zjsj_warehouse`
---
-
-DROP TABLE IF EXISTS `zjsj_warehouse`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zjsj_warehouse` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL COMMENT '仓库名称',
-  `code` varchar(20) DEFAULT NULL COMMENT '仓库编码',
-  `storage_area_id` bigint NOT NULL COMMENT '所属场地ID',
-  `capacity` int DEFAULT NULL COMMENT '仓库容量(平方米)',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
-  `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='仓库信息表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `zjsj_warehouse`
 --
 
@@ -1603,14 +488,6 @@ LOCK TABLES `zjsj_warehouse` WRITE;
 INSERT INTO `zjsj_warehouse` VALUES (1,'中心总仓-A区','WH-GZ-001',1,4000,'admin','admin','2025-01-15 09:00:00','2025-05-20 14:30:00'),(2,'中心总仓-B区','WH-GZ-002',1,3500,'admin','admin','2025-01-15 09:00:00','2025-05-20 14:30:00'),(3,'白云设备仓','WH-BY-001',2,2000,'admin','admin','2025-01-20 10:30:00','2025-06-05 11:15:00');
 /*!40000 ALTER TABLE `zjsj_warehouse` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'eladmin'
---
-
---
--- Dumping routines for database 'eladmin'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1621,4 +498,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-23  7:13:02
+-- Dump completed on 2025-07-23  7:13:34

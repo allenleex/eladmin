@@ -16,6 +16,8 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.ElectronicTagHealthStatus;
+import me.zhengjie.modules.zjsj.enumeration.ElectronicTagHealthType;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -44,7 +46,8 @@ public class ZjsjElectronicTag implements Serializable {
     @Column(name = "`type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "类型")
-    private Integer type;
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private ElectronicTagHealthType type;
 
     @Column(name = "`bind_asset_id`")
     @ApiModelProperty(value = "绑定资产ID")
@@ -56,7 +59,8 @@ public class ZjsjElectronicTag implements Serializable {
 
     @Column(name = "`health_status`")
     @ApiModelProperty(value = "healthStatus")
-    private Integer healthStatus;
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private ElectronicTagHealthStatus healthStatus;
 
     @Column(name = "`last_check_time`")
     @ApiModelProperty(value = "最后检测时间")

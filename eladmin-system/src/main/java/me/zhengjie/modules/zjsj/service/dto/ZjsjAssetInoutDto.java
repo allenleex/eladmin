@@ -16,6 +16,8 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.AssetInoutType;
+
 import java.sql.Timestamp;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +38,7 @@ public class ZjsjAssetInoutDto implements Serializable {
     private Long assetId;
 
     @ApiModelProperty(value = "类型")
-    private Integer type;
+    private AssetInoutType type;
 
     @ApiModelProperty(value = "关联单号")
     private Long refOrderId;

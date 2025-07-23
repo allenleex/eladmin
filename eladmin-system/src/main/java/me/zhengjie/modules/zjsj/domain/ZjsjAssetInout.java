@@ -16,6 +16,7 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.AssetInoutType;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -50,7 +51,8 @@ public class ZjsjAssetInout implements Serializable {
     @Column(name = "`type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "类型")
-    private Integer type;
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private AssetInoutType type;
 
     @Column(name = "`ref_order_id`")
     @ApiModelProperty(value = "关联单号")

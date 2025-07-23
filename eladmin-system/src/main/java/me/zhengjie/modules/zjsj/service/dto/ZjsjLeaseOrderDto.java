@@ -16,6 +16,8 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.LeaseOrderStatus;
+
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
@@ -49,7 +51,7 @@ public class ZjsjLeaseOrderDto implements Serializable {
     private BigDecimal totalFee;
 
     @ApiModelProperty(value = "状态")
-    private Integer status;
+    private LeaseOrderStatus status;
 
     @ApiModelProperty(value = "创建者")
     private String createBy;

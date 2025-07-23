@@ -890,7 +890,7 @@ DROP TABLE IF EXISTS `zjsj_asset_inout`;
 CREATE TABLE `zjsj_asset_inout` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `asset_id` bigint NOT NULL COMMENT '资产ID',
-  `type` enum('入库','出库','移库') NOT NULL,
+  `type` enum('IN','OUT','MOVE') NOT NULL,
   `ref_order_id` bigint DEFAULT NULL COMMENT '关联单号',
   `warehouse_id` bigint DEFAULT NULL COMMENT '仓库ID',
   `before_location` varchar(50) DEFAULT NULL COMMENT '移库前货位',
@@ -938,7 +938,7 @@ CREATE TABLE `zjsj_electronic_tag` (
   `type` enum('RFID','GPS') NOT NULL,
   `bind_asset_id` bigint DEFAULT NULL COMMENT '绑定资产ID',
   `bind_time` datetime DEFAULT NULL COMMENT '绑定时间',
-  `health_status` enum('正常','低电','故障') DEFAULT NULL,
+  `health_status` enum('NORMAL','LOWPOWER','ERROR') DEFAULT NULL,
   `last_check_time` datetime DEFAULT NULL COMMENT '最后检测时间',
   `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
   `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
@@ -985,7 +985,7 @@ CREATE TABLE `zjsj_lease_order` (
   `start_date` date NOT NULL COMMENT '租赁开始日',
   `end_date` date NOT NULL COMMENT '租赁结束日',
   `total_fee` decimal(18,2) DEFAULT NULL COMMENT '租赁总费用',
-  `status` enum('申请中','执行中','已完成','已结算') DEFAULT NULL,
+  `status` enum('APPLYING','EXECUTE','FINISH','SETTLE') DEFAULT NULL,
   `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
   `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
@@ -1028,7 +1028,7 @@ DROP TABLE IF EXISTS `zjsj_organization`;
 CREATE TABLE `zjsj_organization` (
   `org_code` varchar(20) NOT NULL COMMENT '机构编码',
   `org_name` varchar(50) NOT NULL COMMENT '机构名称',
-  `org_type` enum('公司','分公司','项目部') NOT NULL,
+  `org_type` enum('HEADER','BRANCH','PROJECT') NOT NULL,
   `parent_org_code` varchar(20) DEFAULT NULL COMMENT '上级机构编码',
   `create_by` varchar(255) DEFAULT NULL COMMENT '创建者',
   `update_by` varchar(255) DEFAULT NULL COMMENT '更新者',
@@ -1147,4 +1147,4 @@ CREATE TABLE `zjsj_warehouse` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-23  6:53:27
+-- Dump completed on 2025-07-23  7:12:01

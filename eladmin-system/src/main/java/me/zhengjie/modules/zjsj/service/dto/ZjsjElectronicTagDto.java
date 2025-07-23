@@ -16,6 +16,9 @@
 package me.zhengjie.modules.zjsj.service.dto;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.ElectronicTagHealthStatus;
+import me.zhengjie.modules.zjsj.enumeration.ElectronicTagHealthType;
+
 import java.sql.Timestamp;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +36,7 @@ public class ZjsjElectronicTagDto implements Serializable {
     private String id;
 
     @ApiModelProperty(value = "类型")
-    private Integer type;
+    private ElectronicTagHealthType type;
 
     @ApiModelProperty(value = "绑定资产ID")
     private Long bindAssetId;
@@ -42,7 +45,7 @@ public class ZjsjElectronicTagDto implements Serializable {
     private Timestamp bindTime;
 
     @ApiModelProperty(value = "healthStatus")
-    private Integer healthStatus;
+    private ElectronicTagHealthStatus healthStatus;
 
     @ApiModelProperty(value = "最后检测时间")
     private Timestamp lastCheckTime;

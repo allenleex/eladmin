@@ -16,6 +16,7 @@
 package me.zhengjie.modules.zjsj.domain;
 
 import lombok.Data;
+import me.zhengjie.modules.zjsj.enumeration.LeaseOrderStatus;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -70,7 +71,8 @@ public class ZjsjLeaseOrder implements Serializable {
 
     @Column(name = "`status`")
     @ApiModelProperty(value = "状态")
-    private Integer status;
+    @Enumerated(EnumType.STRING) // 关键：按字符串值映射
+    private LeaseOrderStatus status;
 
     @Column(name = "`create_by`")
     @ApiModelProperty(value = "创建者")
