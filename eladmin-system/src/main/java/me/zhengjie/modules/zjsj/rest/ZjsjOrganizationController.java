@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjOrganizationDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "组织机构")
+@Api(tags = "资产管理：组织机构")
 @RequestMapping("/api/zjsjOrganization")
 public class ZjsjOrganizationController {
 

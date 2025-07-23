@@ -39,19 +39,19 @@ public class ZjsjProjectDto implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "项目类型")
-    private unknowType type;
+    private Integer type;
 
     @ApiModelProperty(value = "项目规模描述")
     private String scale;
 
     @ApiModelProperty(value = "地理位置(GIS坐标)")
-    private unknowType location;
+    private Integer location;
 
     @ApiModelProperty(value = "责任主体单位")
     private String responsibleOrg;
 
     @ApiModelProperty(value = "status")
-    private unknowType status;
+    private Integer status;
 
     @ApiModelProperty(value = "创建者")
     private String createBy;

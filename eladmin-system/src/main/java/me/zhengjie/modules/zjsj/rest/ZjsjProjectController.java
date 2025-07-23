@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjProjectDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "工程项目")
+@Api(tags = "资产管理：工程项目")
 @RequestMapping("/api/zjsjProject")
 public class ZjsjProjectController {
 

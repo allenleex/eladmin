@@ -44,7 +44,7 @@ public class ZjsjElectronicTag implements Serializable {
     @Column(name = "`type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @Column(name = "`bind_asset_id`")
     @ApiModelProperty(value = "绑定资产ID")
@@ -56,7 +56,7 @@ public class ZjsjElectronicTag implements Serializable {
 
     @Column(name = "`health_status`")
     @ApiModelProperty(value = "healthStatus")
-    private unknowType healthStatus;
+    private Integer healthStatus;
 
     @Column(name = "`last_check_time`")
     @ApiModelProperty(value = "最后检测时间")

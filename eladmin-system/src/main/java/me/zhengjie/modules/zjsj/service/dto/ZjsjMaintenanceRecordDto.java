@@ -37,7 +37,7 @@ public class ZjsjMaintenanceRecordDto implements Serializable {
     private Long assetId;
 
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @ApiModelProperty(value = "维护费用")
     private BigDecimal cost;
@@ -46,7 +46,7 @@ public class ZjsjMaintenanceRecordDto implements Serializable {
     private String content;
 
     @ApiModelProperty(value = "处理结果")
-    private unknowType result;
+    private Integer result;
 
     @ApiModelProperty(value = "maintenanceDate")
     private Timestamp maintenanceDate;

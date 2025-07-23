@@ -74,7 +74,7 @@ public class ZjsjAsset implements Serializable {
     @Column(name = "`status`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "status")
-    private unknowType status;
+    private Integer status;
 
     @Column(name = "`is_turnover`")
     @ApiModelProperty(value = "是否周转物资")

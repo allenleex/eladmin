@@ -51,11 +51,11 @@ public class ZjsjStorageArea implements Serializable {
     @Column(name = "`type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @Column(name = "`location`")
     @ApiModelProperty(value = "地理坐标")
-    private unknowType location;
+    private Integer location;
 
     @Column(name = "`capacity`")
     @ApiModelProperty(value = "场地容量描述")

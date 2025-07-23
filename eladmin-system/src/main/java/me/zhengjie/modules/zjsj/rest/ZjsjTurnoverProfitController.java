@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjTurnoverProfitDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "周转物资收益")
+@Api(tags = "资产管理：周转物资收益")
 @RequestMapping("/api/zjsjTurnoverProfit")
 public class ZjsjTurnoverProfitController {
 

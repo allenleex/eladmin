@@ -50,7 +50,7 @@ public class ZjsjAssetInout implements Serializable {
     @Column(name = "`type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @Column(name = "`ref_order_id`")
     @ApiModelProperty(value = "关联单号")

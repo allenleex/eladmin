@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjStorageAreaDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "存放场地")
+@Api(tags = "资产管理：存放场地")
 @RequestMapping("/api/zjsjStorageArea")
 public class ZjsjStorageAreaController {
 

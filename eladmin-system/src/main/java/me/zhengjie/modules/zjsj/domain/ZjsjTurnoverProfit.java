@@ -51,7 +51,7 @@ public class ZjsjTurnoverProfit implements Serializable {
     @Column(name = "`year`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "统计年份")
-    private unknowType year;
+    private Integer year;
 
     @Column(name = "`quarter`")
     @ApiModelProperty(value = "季度(1-4)")

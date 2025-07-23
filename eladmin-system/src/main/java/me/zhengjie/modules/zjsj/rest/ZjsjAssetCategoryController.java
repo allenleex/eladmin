@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjAssetCategoryDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "资产分类")
+@Api(tags = "资产管理：资产分类")
 @RequestMapping("/api/zjsjAssetCategory")
 public class ZjsjAssetCategoryController {
 

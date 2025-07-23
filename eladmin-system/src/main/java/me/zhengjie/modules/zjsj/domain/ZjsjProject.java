@@ -54,7 +54,7 @@ public class ZjsjProject implements Serializable {
 
     @Column(name = "`type`")
     @ApiModelProperty(value = "项目类型")
-    private unknowType type;
+    private Integer type;
 
     @Column(name = "`scale`")
     @ApiModelProperty(value = "项目规模描述")
@@ -62,7 +62,7 @@ public class ZjsjProject implements Serializable {
 
     @Column(name = "`location`")
     @ApiModelProperty(value = "地理位置(GIS坐标)")
-    private unknowType location;
+    private Integer location;
 
     @Column(name = "`responsible_org`")
     @ApiModelProperty(value = "责任主体单位")
@@ -70,7 +70,7 @@ public class ZjsjProject implements Serializable {
 
     @Column(name = "`status`")
     @ApiModelProperty(value = "status")
-    private unknowType status;
+    private Integer status;
 
     @Column(name = "`create_by`")
     @ApiModelProperty(value = "创建者")

@@ -36,10 +36,10 @@ public class ZjsjStorageAreaDto implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @ApiModelProperty(value = "地理坐标")
-    private unknowType location;
+    private Integer location;
 
     @ApiModelProperty(value = "场地容量描述")
     private String capacity;

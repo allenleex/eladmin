@@ -37,7 +37,7 @@ public class ZjsjTurnoverProfitDto implements Serializable {
     private Long assetId;
 
     @ApiModelProperty(value = "统计年份")
-    private unknowType year;
+    private Integer year;
 
     @ApiModelProperty(value = "季度(1-4)")
     private Integer quarter;

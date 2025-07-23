@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjElectronicTagDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "电子标签")
+@Api(tags = "资产管理：电子标签")
 @RequestMapping("/api/zjsjElectronicTag")
 public class ZjsjElectronicTagController {
 

@@ -50,7 +50,7 @@ public class ZjsjOrganization implements Serializable {
     @Column(name = "`org_type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "orgType")
-    private unknowType orgType;
+    private Integer orgType;
 
     @Column(name = "`parent_org_code`")
     @ApiModelProperty(value = "上级机构编码")

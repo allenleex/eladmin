@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjAssetInoutDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "出入库")
+@Api(tags = "资产管理：出入库")
 @RequestMapping("/api/zjsjAssetInout")
 public class ZjsjAssetInoutController {
 

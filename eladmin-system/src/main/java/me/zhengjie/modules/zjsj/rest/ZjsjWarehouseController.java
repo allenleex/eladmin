@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjWarehouseDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "仓库信息")
+@Api(tags = "资产管理：仓库信息")
 @RequestMapping("/api/zjsjWarehouse")
 public class ZjsjWarehouseController {
 

@@ -36,7 +36,7 @@ public class ZjsjOrganizationDto implements Serializable {
     private String orgName;
 
     @ApiModelProperty(value = "orgType")
-    private unknowType orgType;
+    private Integer orgType;
 
     @ApiModelProperty(value = "上级机构编码")
     private String parentOrgCode;

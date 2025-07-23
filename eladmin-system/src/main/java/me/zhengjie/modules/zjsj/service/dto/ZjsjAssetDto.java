@@ -52,7 +52,7 @@ public class ZjsjAssetDto implements Serializable {
     private BigDecimal originalValue;
 
     @ApiModelProperty(value = "status")
-    private unknowType status;
+    private Integer status;
 
     @ApiModelProperty(value = "是否周转物资")
     private Integer isTurnover;

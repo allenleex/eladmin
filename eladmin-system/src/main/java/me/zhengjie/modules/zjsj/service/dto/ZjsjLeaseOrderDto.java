@@ -49,7 +49,7 @@ public class ZjsjLeaseOrderDto implements Serializable {
     private BigDecimal totalFee;
 
     @ApiModelProperty(value = "status")
-    private unknowType status;
+    private Integer status;
 
     @ApiModelProperty(value = "创建者")
     private String createBy;

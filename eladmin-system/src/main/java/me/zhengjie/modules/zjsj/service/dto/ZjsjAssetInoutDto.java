@@ -36,7 +36,7 @@ public class ZjsjAssetInoutDto implements Serializable {
     private Long assetId;
 
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @ApiModelProperty(value = "关联单号")
     private Long refOrderId;

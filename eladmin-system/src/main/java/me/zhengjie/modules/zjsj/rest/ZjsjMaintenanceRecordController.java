@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjMaintenanceRecordDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "维护记录")
+@Api(tags = "资产管理：维护记录")
 @RequestMapping("/api/zjsjMaintenanceRecord")
 public class ZjsjMaintenanceRecordController {
 

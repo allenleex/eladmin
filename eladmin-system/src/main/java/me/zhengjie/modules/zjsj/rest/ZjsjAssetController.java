@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjAssetDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "资产")
+@Api(tags = "资产管理：资产")
 @RequestMapping("/api/zjsjAsset")
 public class ZjsjAssetController {
 

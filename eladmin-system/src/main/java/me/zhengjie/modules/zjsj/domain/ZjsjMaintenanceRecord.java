@@ -51,7 +51,7 @@ public class ZjsjMaintenanceRecord implements Serializable {
     @Column(name = "`type`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @Column(name = "`cost`")
     @ApiModelProperty(value = "维护费用")
@@ -63,7 +63,7 @@ public class ZjsjMaintenanceRecord implements Serializable {
 
     @Column(name = "`result`")
     @ApiModelProperty(value = "处理结果")
-    private unknowType result;
+    private Integer result;
 
     @Column(name = "`maintenance_date`",nullable = false)
     @NotNull

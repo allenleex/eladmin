@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjEmployeeDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "员工档案")
+@Api(tags = "资产管理：员工档案")
 @RequestMapping("/api/zjsjEmployee")
 public class ZjsjEmployeeController {
 

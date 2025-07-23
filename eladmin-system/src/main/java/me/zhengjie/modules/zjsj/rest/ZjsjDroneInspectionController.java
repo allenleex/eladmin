@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjDroneInspectionDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "无人机巡检")
+@Api(tags = "资产管理：无人机巡检")
 @RequestMapping("/api/zjsjDroneInspection")
 public class ZjsjDroneInspectionController {
 

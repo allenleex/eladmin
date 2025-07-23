@@ -70,7 +70,7 @@ public class ZjsjLeaseOrder implements Serializable {
 
     @Column(name = "`status`")
     @ApiModelProperty(value = "status")
-    private unknowType status;
+    private Integer status;
 
     @Column(name = "`create_by`")
     @ApiModelProperty(value = "创建者")

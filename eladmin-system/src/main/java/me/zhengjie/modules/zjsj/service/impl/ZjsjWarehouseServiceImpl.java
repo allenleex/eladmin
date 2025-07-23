@@ -37,6 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import me.zhengjie.utils.PageResult;
+import me.zhengjie.exception.EntityExistException;
 
 /**
 * @website https://eladmin.vip
@@ -84,8 +85,8 @@ public class ZjsjWarehouseServiceImpl implements ZjsjWarehouseService {
     public void update(ZjsjWarehouse resources) {
         ZjsjWarehouse zjsjWarehouse = zjsjWarehouseRepository.findById(resources.getId()).orElseGet(ZjsjWarehouse::new);
         ValidationUtil.isNull( zjsjWarehouse.getId(),"ZjsjWarehouse","id",resources.getId());
-        zjsjWarehouse1 = zjsjWarehouseRepository.findByCode(resources.getCode());
-        if(zjsjWarehouse1 != null && !zjsjWarehouse1.getId().equals(zjsjWarehouse.getId())){
+        zjsjWarehouse = zjsjWarehouseRepository.findByCode(resources.getCode());
+        if(zjsjWarehouse != null && !zjsjWarehouse.getId().equals(zjsjWarehouse.getId())){
             throw new EntityExistException(ZjsjWarehouse.class,"code",resources.getCode());
         }
         zjsjWarehouse.copy(resources);

@@ -33,7 +33,7 @@ public class ZjsjElectronicTagDto implements Serializable {
     private String id;
 
     @ApiModelProperty(value = "type")
-    private unknowType type;
+    private Integer type;
 
     @ApiModelProperty(value = "绑定资产ID")
     private Long bindAssetId;
@@ -42,7 +42,7 @@ public class ZjsjElectronicTagDto implements Serializable {
     private Timestamp bindTime;
 
     @ApiModelProperty(value = "healthStatus")
-    private unknowType healthStatus;
+    private Integer healthStatus;
 
     @ApiModelProperty(value = "最后检测时间")
     private Timestamp lastCheckTime;

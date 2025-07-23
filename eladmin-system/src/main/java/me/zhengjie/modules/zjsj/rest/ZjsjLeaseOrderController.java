@@ -39,7 +39,7 @@ import me.zhengjie.modules.zjsj.service.dto.ZjsjLeaseOrderDto;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "租赁订单")
+@Api(tags = "资产管理：租赁订单")
 @RequestMapping("/api/zjsjLeaseOrder")
 public class ZjsjLeaseOrderController {
 
