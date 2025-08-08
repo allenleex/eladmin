@@ -67,7 +67,7 @@ public class EcoController {
         
         // String apiUrl = "http://localhost:8001/mongo?field=time&value=1751328002&projection=bid"; // 目标API地址
         // String apiUrl = "http://localhost:8001/records/count"; // 目标API地址
-        String apiUrl = "http://localhost:8001/records/list"; // 目标API地址
+        String apiUrl = "http://localhost:8001/v1/list/all"; // 目标API地址
         
         try {
             // 构建查询参数
