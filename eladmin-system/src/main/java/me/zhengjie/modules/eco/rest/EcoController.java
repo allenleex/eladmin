@@ -63,7 +63,7 @@ public class EcoController {
         @RequestParam("limit") Integer limit
     ) {
         logger.info("===================== ecoTest =====================");
-        logger.info("参数: collectionName={}, filterField={}, filterValue={}, limit={}", collectionName, filterField, filterValue, limit);
+        logger.info("params: collectionName={}, filterField={}, filterValue={}, limit={}", collectionName, filterField, filterValue, limit);
         
         // String apiUrl = "http://localhost:8001/mongo?field=time&value=1751328002&projection=bid"; // 目标API地址
         // String apiUrl = "http://localhost:8001/records/count"; // 目标API地址
@@ -78,7 +78,7 @@ public class EcoController {
                 .queryParam("limit", limit);
             
             String fullUrl = builder.toUriString();
-            logger.info("构建API URL: {}", fullUrl);
+            logger.info("API URL: {}", fullUrl);
             
             // 设置请求头
             HttpHeaders headers = new HttpHeaders();
@@ -96,8 +96,8 @@ public class EcoController {
                 Object.class
             );
 
-            logger.info("API状态码: {}", response.getStatusCode());
-            logger.info("响应体类型: {}", response.getBody().getClass().getName());
+            logger.info("API status code: {}", response.getStatusCode());
+            logger.info("response type: {}", response.getBody().getClass().getName());
 
             return response.getBody(); // 直接返回JSON对象
 
@@ -110,17 +110,64 @@ public class EcoController {
         }
     }
 
-    /**
-     * 创建标准化的错误响应
-     */
-    private Map<String, Object> createErrorResponse(String message, int status, String detail) {
-        Map<String, Object> errorResponse = new HashMap<>();
-        errorResponse.put("status", "error");
-        errorResponse.put("message", message);
-        errorResponse.put("statusCode", status);
-        errorResponse.put("timestamp", System.currentTimeMillis());
-        errorResponse.put("details", detail);
-        return errorResponse;
-    }
+    @GetMapping(value = "/energy/daily")
+    public Object ecoEnergyDaily(
+        @ApiParam(value = "bid", example = "201", required = true)
+        @RequestParam("bid") String bid,
+        
+        @ApiParam(value = "mid", example = "1", required = true)
+        @RequestParam("mid") String mid,
+
+        @ApiParam(value = "开始日期，格式为yyyyMMdd", example = "20250701", required = true)
+        @RequestParam("start_date") String start_date,
+        
+        @ApiParam(value = "结束日期，格式为yyyyMMdd", example = "20250801", required = true)
+        @RequestParam("end_date") String end_date        
+    ) {
+        logger.info("===================== ecoEppByDate =====================");
+        logger.info("params: bid={}, mid={}, start_date={}, end_date={}", bid, mid, start_date, end_date);
+        
+        String apiUrl = "http://localhost:8001/v1/energy/daily"; // 目标API地址
+        
+        try {
+            // 构建查询参数
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiUrl)
+                .queryParam("bid", bid)
+                .queryParam("mid", mid)
+                .queryParam("start_date", start_date)
+                .queryParam("end_date", end_date);
+            
+            String fullUrl = builder.toUriString();
+            logger.info("API URL: {}", fullUrl);
+            
+            // 设置请求头
+            HttpHeaders headers = new HttpHeaders();
+            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
+            // 发起GET请求并获取JSON响应
+            // ResponseEntity<Object> response = restTemplate.getForEntity(apiUrl, Object.class);
+            ResponseEntity<Object> response = restTemplate.exchange(
+                fullUrl, 
+                HttpMethod.GET, 
+                entity, 
+                Object.class
+            );
+
+            logger.info("API status code: {}", response.getStatusCode());
+            logger.info("response type: {}", response.getBody().getClass().getName());
+
+            return response.getBody(); // 直接返回JSON对象
+
+        } catch (HttpClientErrorException e) {
+            logger.error("API status code: {}, error: {}", e.getStatusCode(), e.getMessage());
+            return "error: " + e.getStatusCode();
+        } catch (Exception e) {
+            logger.error("API error: {}", e.getMessage());
+            return "error: " + e.getMessage();
+        }
+    }    
 
 }
